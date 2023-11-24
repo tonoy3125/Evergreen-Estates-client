@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import '../../Pages/ButtonHover/hover.css'
 import { Player } from '@lottiefiles/react-lottie-player';
 
