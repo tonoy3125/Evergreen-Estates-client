@@ -61,6 +61,22 @@ const Login = () => {
             })
     }
 
+    // Github sign in
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+            .then(result => {
+                console.log(result.user)
+                navigate(location?.state ? location.state : "/")
+                swal("Good job!", "User logged Successfully", "success");
+
+            })
+            .catch(error => {
+                const errormsg = error.message;
+                toast.error(errormsg);
+            })
+    }
+
+
 
     return (
         <div className='pb-10 pt-10 ' style={{ backgroundImage: `url(${login})`, backgroundSize: 'cover' }}>
@@ -93,7 +109,7 @@ const Login = () => {
                     <h2 className="text-lg font-semibold text-black text-center mb-7">Or Sign In with</h2>
                     <div className="flex items-center justify-center gap-4 mb-12">
                         <button onClick={handleGoogleSignIn}><FcGoogle className="text-3xl"></FcGoogle></button>
-                        <button><FiGithub className="text-3xl "></FiGithub></button>
+                        <button onClick={handleGithubSignIn}><FiGithub className="text-3xl "></FiGithub></button>
                         <button><FiTwitter className="text-3xl "></FiTwitter></button>
 
                     </div>
