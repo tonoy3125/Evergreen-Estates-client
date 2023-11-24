@@ -9,7 +9,7 @@ const Card = ({ item }) => {
     const { _id, property_name, property_image, location, price_range, verification_status, bed, bath, size, agent_img, agent_name, year } = item
     return (
         <div>
-            <div className="card border shadow-xl px-5 relative mx-2 lg:mx-0">
+            <div className="card border shadow-2xl shadow-[#2980b9] px-5 relative mx-2 lg:mx-0">
 
                 <figure className=" pt-5">
                     <img src={property_image} alt="Shoes" className="rounded-xl" />
@@ -40,7 +40,7 @@ const Card = ({ item }) => {
                     </div>
                 </div>
                 <hr className=" mt-3 mb-3" />
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-5 ">
                         <div className="avatar mb-3 mt-3">
                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
