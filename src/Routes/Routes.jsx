@@ -14,6 +14,11 @@ import ManageProperties from "../DashBoard/Admin/ManageProperties/ManageProperti
 import ManageUsers from "../DashBoard/Admin/ManageUsers/ManageUsers";
 import ManageReviews from "../DashBoard/Admin/ManageReviews/ManageReviews";
 import PrivateRoute from './PrivateRoute';
+import AgentProfile from "../DashBoard/Agent/AgentProfile/AgentProfile";
+import MyAddedProperties from "../DashBoard/Agent/MyAddedProperties/MyAddedProperties";
+import AddProperty from "../DashBoard/Agent/AddProperty/AddProperty";
+import MySoldProperties from "../DashBoard/Agent/MySoldProperties/MySoldProperties";
+import RequestedProperties from "../DashBoard/Agent/RequestedProperties/RequestedProperties";
 
 
 const router = createBrowserRouter([
@@ -44,6 +49,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
         children: [
+            // Admin Routes
             {
                 path: "adminprofile",
                 element: <AdminProfile></AdminProfile>
@@ -59,7 +65,28 @@ const router = createBrowserRouter([
             {
                 path: "managereviews",
                 element: <ManageReviews></ManageReviews>
-            }
+            },
+            // Agent Routes
+            {
+                path: "agentprofile",
+                element: <AgentProfile></AgentProfile>
+            },
+            {
+                path: "addproperty",
+                element: <AddProperty></AddProperty>
+            },
+            {
+                path: "myaddedproperties",
+                element: <MyAddedProperties></MyAddedProperties>
+            },
+            {
+                path: "mysoldproperties",
+                element: <MySoldProperties></MySoldProperties>
+            },
+            {
+                path: "requestedproperties",
+                element: <RequestedProperties></RequestedProperties>
+            },
         ]
     }
 ]);

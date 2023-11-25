@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FiGithub } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';

@@ -27,18 +27,18 @@ const AdminNav = () => {
                 </NavLink>
                 <NavLink to='/dashboard/manageusers'>
                     <li>
-                        <a href="#" class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <FaUsers className="text-base lg:text-xl" />
                             <span class="ms-3 lg:text-xl">Manage Users</span>
-                        </a>
+                        </div>
                     </li>
                 </NavLink>
                 <NavLink to='/dashboard/managereviews'>
                     <li>
-                        <a href="#" class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <MdOutlineReviews className="text-base lg:text-xl" />
                             <span class="ms-3 lg:text-xl">Manage Reviews</span>
-                        </a>
+                        </div>
                     </li>
                 </NavLink>
 

@@ -3,11 +3,13 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { ImProfile } from "react-icons/im";
-import { FaList } from "react-icons/fa6";
-import { FaUsers } from "react-icons/fa";
-import { MdOutlineReviews } from "react-icons/md";
+import { MdOutlineAddModerator } from "react-icons/md";
+import { MdOutlineBookmarkAdded } from "react-icons/md";
+import { MdOutlineAddHomeWork } from "react-icons/md";
+import { MdImageSearch } from "react-icons/md";
 
-const DashBoardNav = () => {
+
+const AgentDashBoardNav = () => {
     return (
         <div>
             <nav class=" fixed top-0 z-50 w-full  border-b border-gray-200 ">
@@ -24,41 +26,57 @@ const DashBoardNav = () => {
                                 <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
                                 <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                                     {/* <!-- Sidebar content here --> */}
-                                    <NavLink to='/dashboard/adminprofile'>
+                                    {/* Routes one */}
+                                    <NavLink to='/dashboard/agentprofile'>
                                         <li>
                                             <div class="flex items-center p-2 text-white hover:text-black rounded-lg hover:bg-gray-100  group">
                                                 <ImProfile className="text-base lg:text-xl" />
-                                                <span class="ms-3 lg:text-xl">Admin Profile</span>
+                                                <span class="ms-3 lg:text-xl">Agent Profile</span>
                                             </div>
                                         </li>
                                     </NavLink>
-                                    <NavLink to='/dashboard/manageproperties'>
+                                    {/* Routes Two */}
+                                    <NavLink to='/dashboard/addproperty'>
+                                        <li>
+                                            <div class="flex items-center p-2 text-white hover:text-black rounded-lg hover:bg-gray-100  group">
+                                                <MdOutlineAddModerator className="text-base lg:text-xl" />
+                                                <span class="ms-3 lg:text-xl">Add Property</span>
+                                            </div>
+                                        </li>
+                                    </NavLink>
+                                    {/* Routes Three */}
+                                    <NavLink to='/dashboard/myaddedproperties'>
                                         <li>
                                             <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                                <FaList className="text-base lg:text-xl" />
-                                                <span class="ms-3 lg:text-xl">Manage Properties</span>
+                                                <MdOutlineBookmarkAdded className="text-base lg:text-xl" />
+                                                <span class="ms-3 lg:text-xl">My added properties</span>
                                             </div>
                                         </li>
                                     </NavLink>
-                                    <NavLink to='/dashboard/manageusers'>
+                                    {/* Routes Four */}
+                                    <NavLink to='/dashboard/mysoldproperties'>
                                         <li>
-                                            <a href="#" class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                                <FaUsers className="text-base lg:text-xl" />
-                                                <span class="ms-3 lg:text-xl">Manage Users</span>
-                                            </a>
+                                            <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                                <MdOutlineAddHomeWork className="text-base lg:text-xl" />
+                                                <span class="ms-3 lg:text-xl">My Sold Properties</span>
+                                            </div>
                                         </li>
                                     </NavLink>
-                                    <NavLink to='/dashboard/managereviews'>
+                                    {/* Routes Five */}
+                                    <NavLink to='/dashboard/requestedproperties'>
                                         <li>
-                                            <a href="#" class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                                <MdOutlineReviews className="text-base lg:text-xl" />
-                                                <span class="ms-3 lg:text-xl">Manage Reviews</span>
-                                            </a>
+                                            <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                                <MdImageSearch className="text-base lg:text-xl" />
+                                                <span class="ms-3 lg:text-xl">Requested Properties</span>
+                                            </div>
                                         </li>
                                     </NavLink>
                                 </ul>
 
                             </div>
+
+
+
                             <div class="flex items-center ms-2 md:me-24">
                                 <img className="w-10 h-10" src={logo} alt="" />
                                 <h1 className=" text-center md:text-left text-base md:text-xl lg:text-xl font-extrabold"><span className="text-white">Evergreen</span> <span className="text-white">Estates</span></h1>
@@ -72,4 +90,4 @@ const DashBoardNav = () => {
     );
 };
 
-export default DashBoardNav;
+export default AgentDashBoardNav;
