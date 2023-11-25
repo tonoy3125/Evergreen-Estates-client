@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { GrUserAdmin } from "react-icons/gr";
+import { LuUserCog } from "react-icons/lu";
+import Swal from "sweetalert2";
 
 
 const ManageUsers = () => {
@@ -13,6 +16,38 @@ const ManageUsers = () => {
             return res.data
         }
     })
+
+
+    const handleRole = (_id, role) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `Do you really want to update the ${role.role}!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Confirm it"
+        }).then((result) => {
+            const updateRole = role
+            console.log(updateRole)
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${_id}`, updateRole)
+                    .then(res => {
+                        if (res.data.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Updated!",
+                                text: "Your role has been updated.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+
+            }
+        });
+    }
+
 
     return (
         <div>
@@ -28,8 +63,9 @@ const ManageUsers = () => {
                                 <th className="text-white text-xl">Name</th>
                                 <th className="text-white text-xl">Email</th>
                                 <th className="text-white text-xl">Role</th>
-                                <th className="text-white text-xl">Role</th>
-                                <th className="text-white text-xl">Role</th>
+                                <th className="text-white text-xl">Admin</th>
+                                <th className="text-white text-xl">Agent</th>
+                                <th className="text-white text-xl">Fraud</th>
                                 <th className="text-white text-xl">Action</th>
                             </tr>
                         </thead>
@@ -39,11 +75,20 @@ const ManageUsers = () => {
                                     <th className="text-white">{index + 1}</th>
                                     <td className="text-white">{user.name}</td>
                                     <td className="text-white">{user.email}</td>
-                                    <td className="text-white">Blue</td>
-                                    <td className="text-white">Blue</td>
+                                    <td className="text-white">{user.role}</td>
+                                    <td>
+                                        <button onClick={() => handleRole(user._id, { role: "admin" })} className="btn btn-outline text-white">
+                                            <GrUserAdmin className="text-2xl"></GrUserAdmin>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleRole(user._id, { role: "agent" })} className="btn btn-outline text-white">
+                                            <LuUserCog className="text-2xl "></LuUserCog>
+                                        </button>
+                                    </td>
                                     <td className="text-white">Blue</td>
                                     <td><button className="btn btn-outline text-white">
-                                        <RiDeleteBin5Line className="text-xl"/>
+                                        <RiDeleteBin5Line className="text-xl" />
                                     </button></td>
                                 </tr>)
                             }
