@@ -10,12 +10,14 @@ import '../../Pages/ButtonHover/hover.css'
 import useAuth from '../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
 import swal from 'sweetalert';
+import UseAxiosPublic from '../../Hooks/useAxiosPublic';
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const { signIn, setLoading, signInWithGoogle, signInWithGithub } = useAuth()
     const navigate = useNavigate()
+    const axiosPublic = UseAxiosPublic()
 
 
     const handleLogin = e => {
@@ -52,8 +54,16 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user)
-                navigate(location?.state ? location.state : "/")
-                swal("Good job!", "User logged Successfully", "success");
+                const userInfo = {
+                    name: result.user?.displayName,
+                    email: result.user?.email
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data)
+                        navigate(location?.state ? location.state : "/")
+                        swal("Good job!", "User logged Successfully", "success");
+                    })
             })
             .catch(error => {
                 const errormsg = error.message;
