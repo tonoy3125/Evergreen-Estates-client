@@ -9,6 +9,10 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AllProperties from "../Pages/AllProperties/AllProperties";
 import DashBoardLayout from "../DashBoard/DashBoardLayout/DashBoardLayout";
+import AdminProfile from "../DashBoard/Admin/AdminProfile/AdminProfile";
+import ManageProperties from "../DashBoard/Admin/ManageProperties/ManageProperties";
+import ManageUsers from "../DashBoard/Admin/ManageUsers/ManageUsers";
+import ManageReviews from "../DashBoard/Admin/ManageReviews/ManageReviews";
 
 
 const router = createBrowserRouter([
@@ -40,7 +44,20 @@ const router = createBrowserRouter([
         element: <DashBoardLayout></DashBoardLayout>,
         children: [
             {
-                
+                path: "adminprofile",
+                element: <AdminProfile></AdminProfile>
+            },
+            {
+                path: "manageproperties",
+                element: <ManageProperties></ManageProperties>
+            },
+            {
+                path: "manageusers",
+                element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: "managereviews",
+                element: <ManageReviews></ManageReviews>
             }
         ]
     }
