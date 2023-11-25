@@ -5,10 +5,11 @@ import DashBoardNav from "../../Components/DashBoardNav/DashBoardNav";
 import AdminNav from "../../Components/AdminNav/AdminNav";
 import AgentDashBoardNav from "../../Components/AgentDashBoardNav/AgentDashBoardNav";
 import AgentNav from "../../Components/AgentNav/AgentNav";
+import UseAdmin from "../../Hooks/useAdmin";
 
 
 const DashBoardLayout = () => {
-    const isAdmin = true
+    const [isAdmin] = UseAdmin()
     const isAgent = false
 
     return (
