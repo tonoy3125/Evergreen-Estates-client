@@ -17,6 +17,7 @@ const ManageUsers = () => {
         }
     })
 
+    // Update The User role
 
     const handleRole = (_id, role) => {
         Swal.fire({
@@ -43,6 +44,38 @@ const ManageUsers = () => {
                         }
                     })
 
+
+            }
+        });
+    }
+
+    // Delete a User by id
+
+    const handleDeleteUser = user => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/users/${user._id}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+
+
+                    })
 
             }
         });
@@ -87,7 +120,7 @@ const ManageUsers = () => {
                                         </button>
                                     </td>
                                     <td className="text-white">Blue</td>
-                                    <td><button className="btn btn-outline text-white">
+                                    <td><button onClick={() => handleDeleteUser(user)} className="btn btn-outline text-white">
                                         <RiDeleteBin5Line className="text-xl" />
                                     </button></td>
                                 </tr>)
