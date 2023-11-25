@@ -10,7 +10,7 @@ import UseAdmin from "../../Hooks/useAdmin";
 
 const DashBoardLayout = () => {
     const [isAdmin] = UseAdmin()
-    const isAgent = false
+    const isAgent = true
 
     return (
         <div className=" min-h-screen ">
