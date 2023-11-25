@@ -43,8 +43,6 @@ const ManageUsers = () => {
                             });
                         }
                     })
-
-
             }
         });
     }
@@ -73,10 +71,7 @@ const ManageUsers = () => {
                                 icon: "success"
                             });
                         }
-
-
                     })
-
             }
         });
     }
