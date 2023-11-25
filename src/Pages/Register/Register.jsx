@@ -8,8 +8,10 @@ import '../../Pages/ButtonHover/hover.css'
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
+import UseAxiosPublic from './../../Hooks/useAxiosPublic';
 
 const Register = () => {
+    const axiosPublic = UseAxiosPublic()
     const { createUser, logOut, handleUpdateProfile, setLoading } = useAuth()
     const { register, handleSubmit, reset } = useForm();
     const [showPassword, setShowPassword] = useState(false)
@@ -40,11 +42,24 @@ const Register = () => {
             .then(result => {
                 handleUpdateProfile(name, photo)
                     .then(() => {
-                        reset()
-                        logOut()
-                        navigate("/login")
+                        // Create User Entry in the database
+                        const usersInfo = {
+                            name: name,
+                            email: email
+                        }
+                        axiosPublic.post('/users', usersInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added to the database')
+                                    reset()
+                                    // logOut()
+                                    navigate("/login")
+                                }
+                            })
+                        toast.success('User Create Successfully')
+
                     })
-                toast.success('User Create Successfully')
+
             })
             // Catch Error 
             .catch(error => {

@@ -13,6 +13,7 @@ import AdminProfile from "../DashBoard/Admin/AdminProfile/AdminProfile";
 import ManageProperties from "../DashBoard/Admin/ManageProperties/ManageProperties";
 import ManageUsers from "../DashBoard/Admin/ManageUsers/ManageUsers";
 import ManageReviews from "../DashBoard/Admin/ManageReviews/ManageReviews";
+import PrivateRoute from './PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashBoardLayout></DashBoardLayout>,
+        element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
         children: [
             {
                 path: "adminprofile",
