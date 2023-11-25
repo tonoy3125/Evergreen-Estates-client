@@ -7,6 +7,8 @@ import ErrorElement from "../Layout/ErrorElement/ErrorElement";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AllProperties from "../Pages/AllProperties/AllProperties";
+import DashBoardLayout from "../DashBoard/DashBoardLayout/DashBoardLayout";
 
 
 const router = createBrowserRouter([
@@ -26,9 +28,22 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/allproperties",
+                element: <AllProperties></AllProperties>
             }
         ]
     },
+    {
+        path: "/dashboard",
+        element: <DashBoardLayout></DashBoardLayout>,
+        children: [
+            {
+                
+            }
+        ]
+    }
 ]);
 
 export default router

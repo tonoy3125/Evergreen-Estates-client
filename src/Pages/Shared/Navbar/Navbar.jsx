@@ -31,10 +31,10 @@ const Navbar = () => {
                             } to="/">Home</NavLink></li>
                             <li className="text-black text-lg hover:text-[#46d993] font-bold"><NavLink className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "font-bold text-black underline" : ""
-                            } to="/addjob">All properties</NavLink></li>
+                            } to="/allproperties">All properties</NavLink></li>
                             <li className="text-black text-lg hover:text-[#46d993] font-bold"><NavLink className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "font-bold text-black underline" : ""
-                            } to="/postedjobs">Dashboard</NavLink></li>
+                            } to="/dashboard">Dashboard</NavLink></li>
 
 
                         </ul>
@@ -52,10 +52,10 @@ const Navbar = () => {
                         } to="/">Home</NavLink></li>
                         <li className="text-white text-lg hover:text-[#46d993] font-medium"><NavLink className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? " text-gray-50 font-bold underline" : ""
-                        } to="/addjob">All properties</NavLink></li>
+                        } to="/allproperties">All properties</NavLink></li>
                         <li className="text-white text-lg hover:text-[#46d993] font-medium"><NavLink className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "font-bold text-gray-50 underline" : ""
-                        } to="/postedjobs">Dashboard</NavLink></li>
+                        } to="/dashboard">Dashboard</NavLink></li>
 
 
 
