@@ -40,7 +40,7 @@ const DashBoardLayout = () => {
             </div> */}
 
             <div className="p-4 pt-14 md:pt-4 sm:ml-64">
-                <div className="p-4 md:ml-7 lg:ml-10 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+                <div className="p-4 md:ml-7 lg:ml-10   rounded-lg dark:border-gray-700 mt-14">
                     <Outlet></Outlet>
                 </div>
             </div>
