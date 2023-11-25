@@ -8,36 +8,36 @@ import { NavLink } from "react-router-dom";
 const AdminNav = () => {
     return (
         <div>
-            <ul class="space-y-2 font-medium">
+            <ul className="space-y-2 font-medium">
                 <NavLink to='/dashboard/adminprofile'>
                     <li>
-                        <div class="flex items-center p-2 text-white hover:text-black rounded-lg hover:bg-gray-100  group">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg hover:bg-gray-100  group">
                             <ImProfile className="text-base lg:text-xl" />
-                            <span class="ms-3 lg:text-xl">Admin Profile</span>
+                            <span className="ms-3 lg:text-xl">Admin Profile</span>
                         </div>
                     </li>
                 </NavLink>
                 <NavLink to='/dashboard/manageproperties'>
                     <li>
-                        <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <FaList className="text-base lg:text-xl" />
-                            <span class="ms-3 lg:text-xl">Manage Properties</span>
+                            <span className="ms-3 lg:text-xl">Manage Properties</span>
                         </div>
                     </li>
                 </NavLink>
                 <NavLink to='/dashboard/manageusers'>
                     <li>
-                        <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <FaUsers className="text-base lg:text-xl" />
-                            <span class="ms-3 lg:text-xl">Manage Users</span>
+                            <span className="ms-3 lg:text-xl">Manage Users</span>
                         </div>
                     </li>
                 </NavLink>
                 <NavLink to='/dashboard/managereviews'>
                     <li>
-                        <div class="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <MdOutlineReviews className="text-base lg:text-xl" />
-                            <span class="ms-3 lg:text-xl">Manage Reviews</span>
+                            <span className="ms-3 lg:text-xl">Manage Reviews</span>
                         </div>
                     </li>
                 </NavLink>

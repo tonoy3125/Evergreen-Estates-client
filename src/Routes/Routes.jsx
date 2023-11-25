@@ -19,6 +19,10 @@ import MyAddedProperties from "../DashBoard/Agent/MyAddedProperties/MyAddedPrope
 import AddProperty from "../DashBoard/Agent/AddProperty/AddProperty";
 import MySoldProperties from "../DashBoard/Agent/MySoldProperties/MySoldProperties";
 import RequestedProperties from "../DashBoard/Agent/RequestedProperties/RequestedProperties";
+import MyProfile from "../DashBoard/User/MyProfile/MyProfile";
+import Wishlist from "../DashBoard/User/Wishlist/Wishlist";
+import PropertyBought from "../DashBoard/User/PropertyBought/PropertyBought";
+import MyReviews from "../DashBoard/User/MyReviews/MyReviews";
 
 
 const router = createBrowserRouter([
@@ -86,6 +90,23 @@ const router = createBrowserRouter([
             {
                 path: "requestedproperties",
                 element: <RequestedProperties></RequestedProperties>
+            },
+            // User Routes
+            {
+                path: "myprofile",
+                element: <MyProfile></MyProfile>
+            },
+            {
+                path: "wishlist",
+                element: <Wishlist></Wishlist>
+            },
+            {
+                path: "propertybought",
+                element: <PropertyBought></PropertyBought>
+            },
+            {
+                path: "myreviews",
+                element: <MyReviews></MyReviews>
             },
         ]
     }
