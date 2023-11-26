@@ -6,7 +6,7 @@ const AdvertisementCard = () => {
     const [advertisement, setAdvertisement] = useState([])
 
     useEffect(() => {
-        fetch('./card.json')
+        fetch('http://localhost:5000/property')
             .then(res => res.json())
             .then(data => setAdvertisement(data))
     }, [])

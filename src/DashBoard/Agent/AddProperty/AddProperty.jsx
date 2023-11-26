@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import UseAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAuth from './../../../Hooks/useAuth';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
@@ -36,7 +36,7 @@ const AddProperty = () => {
                 agentemail: data.agentemail,
                 agentImage: data.agentImage,
                 location: data.location,
-                price: parseFloat(data.price),
+                price: data.price,
                 year: data.year,
                 bed: data.bed,
                 bath: data.bath,
@@ -99,7 +99,7 @@ const AddProperty = () => {
                                 </div>
                                 <div className="col-span-full lg:col-span-2">
                                     <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4">Price <span className="text-red-700">*</span></h2>
-                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="number" name="price" {...register("price", { required: true })} placeholder="Enter Price Here" id="" />
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" name="price" {...register("price")} placeholder="Enter Price Here" id="" />
                                 </div>
                                 <div className="col-span-full lg:col-span-2">
                                     <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4"> Year <span className="text-red-700">*</span></h2>
@@ -125,6 +125,7 @@ const AddProperty = () => {
                     </form>
                 </section>
             </div>
+            <Toaster />
         </div>
     );
 };

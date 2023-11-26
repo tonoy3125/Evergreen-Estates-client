@@ -6,21 +6,21 @@ import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 
 const Card = ({ item }) => {
-    const { _id, property_name, property_image, location, price_range, verification_status, bed, bath, size, agent_img, agent_name, year } = item
+    const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status } = item
     return (
         <div>
             <div className="card border shadow-2xl shadow-[#2980b9] px-5 relative mx-2 lg:mx-0">
 
                 <figure className=" pt-5">
-                    <img src={property_image} alt="Shoes" className="rounded-xl" />
+                    <img src={propertyImage} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="badge badge-secondary absolute left-7 top-8">Featured</div>
-                <p className="absolute text-white top-56 md:top-48 lg:top-52 left-7 font-bold">{price_range}</p>
+                <p className="absolute text-white top-56 md:top-48 lg:top-52 left-7 font-bold">{price}</p>
                 <div className="flex items-center text-white gap-3 absolute right-7 top-56 md:top-48 lg:top-52">
                     <button className="px-2 py-1 rounded-full bg-red-600"><FaArrowRightArrowLeft /></button>
                     <button className="px-2 py-1 rounded-full bg-red-600"><CiBookmark /></button>
                 </div>
-                <h1 className=" text-white mt-3 font-bold text-base">{property_name}</h1>
+                <h1 className=" text-white mt-3 font-bold text-base">{propertyname}</h1>
                 <div className="flex items-center  mt-3 text-white gap-2">
                     <CiLocationOn />
                     <p className="text-sm">{location}</p>
@@ -44,11 +44,11 @@ const Card = ({ item }) => {
                     <div className="flex items-center gap-5 ">
                         <div className="avatar mb-3 mt-3">
                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={agent_img} />
+                                <img src={agentImage} />
                             </div>
                         </div>
                         <div>
-                            <h3 className="text-white">{agent_name}</h3>
+                            <h3 className="text-white">{agentname}</h3>
                         </div>
                     </div>
                     <div>
