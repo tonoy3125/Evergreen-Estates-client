@@ -1,14 +1,46 @@
 import { TbProgressAlert } from "react-icons/tb";
 import { FiEdit3 } from "react-icons/fi";
 import { RiDeleteBin4Line } from "react-icons/ri";
+import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
+import Swal from "sweetalert2";
 
-const PropertiesCard = ({ item }) => {
+const PropertiesCard = ({ item, refetch }) => {
+    const axiosSecure = UseAxiosSecure()
+
     const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status } = item
 
 
-
-
     
+
+
+    const handleDeleteCard = item => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/properties/${item._id}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
+    }
+
     return (
         <div>
             <div className="flex flex-col dark:bg-gray-900 border">
@@ -41,7 +73,7 @@ const PropertiesCard = ({ item }) => {
                             <button className="btn btn-outline border-white text-white w-full"><FiEdit3 /> Edit</button>
                         </div>
                         <div className="flex-1">
-                            <button className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
+                            <button onClick={() => handleDeleteCard(item)} className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
                         </div>
                     </div>
                 </div>

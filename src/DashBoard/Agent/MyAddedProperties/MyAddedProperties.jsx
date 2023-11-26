@@ -20,7 +20,7 @@ const MyAddedProperties = () => {
         <div>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 container mx-auto">
                 {
-                    property.map(item => <PropertiesCard key={item._id} item={item}></PropertiesCard>)
+                    property.map(item => <PropertiesCard key={item._id} item={item} refetch={refetch}></PropertiesCard>)
                 }
             </div>
         </div>
