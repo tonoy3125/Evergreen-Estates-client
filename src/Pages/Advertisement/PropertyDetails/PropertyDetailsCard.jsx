@@ -17,6 +17,16 @@ import ContactUs from "../../../Components/ContactUs/ContactUs";
 const PropertyDetailsCard = ({ item }) => {
     const axiosPublic = UseAxiosPublic()
     const { user } = useAuth()
+    const image = item.propertyImage
+    const title = item.propertyname
+    const location = item.location
+    const agentname = item.agentname
+    const agentImage = item.agentImage
+    const status = item.status
+    const price = item.price
+    const wishlistdata = { image, title, location, agentname, agentImage, status, price }
+    console.log(wishlistdata)
+
 
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['reviews'],
@@ -26,6 +36,15 @@ const PropertyDetailsCard = ({ item }) => {
         }
     })
     // console.log(reviews)
+
+
+    const handleAddWishList = async () => {
+        const res = await axiosPublic.post('/wishlist', wishlistdata)
+        // console.log(res)
+        if(res.data.insertedId){
+            toast.success('Your WishList Have Been Added')
+        }
+    }
 
 
 
@@ -155,7 +174,7 @@ const PropertyDetailsCard = ({ item }) => {
                             </div>
                         </div>
 
-                        <button className="btn btn-outline text-white flex items-center text-base">
+                        <button onClick={handleAddWishList} className="btn btn-outline text-white flex items-center text-base">
                             <FaClover />
                             Add To Wishlist
                         </button>
