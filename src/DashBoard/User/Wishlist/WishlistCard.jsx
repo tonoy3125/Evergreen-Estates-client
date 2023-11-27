@@ -1,10 +1,41 @@
-import { FiEdit3 } from "react-icons/fi";
+
 import { RiDeleteBin4Line } from "react-icons/ri";
 import { TbProgressAlert } from "react-icons/tb";
 import { MdOutlineLocalOffer } from "react-icons/md";
+import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 
-const WishlistCard = ({ item }) => {
+const WishlistCard = ({ item, refetch }) => {
+    const axiosPublic = UseAxiosPublic()
+    const handleDeleteUser = _id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosPublic.delete(`/wishlist/${_id}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
+
+
     return (
         <div>
             <div>
@@ -38,7 +69,7 @@ const WishlistCard = ({ item }) => {
                                 <button className="btn btn-outline border-white text-white w-full"><MdOutlineLocalOffer /> Offer</button>
                             </div>
                             <div className="flex-1">
-                                <button className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
+                                <button onClick={() => handleDeleteUser(item._id)} className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
                             </div>
                         </div>
                     </div>
