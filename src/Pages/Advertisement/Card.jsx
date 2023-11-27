@@ -6,6 +6,7 @@ import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 import { TbProgressAlert } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { MdCancel, MdVerified } from "react-icons/md";
 
 
 const Card = ({ item }) => {
@@ -62,7 +63,9 @@ const Card = ({ item }) => {
                 <div className="flex items-center gap-5  mt-1 mb-3">
                     <div className="flex-1">
                         <span className="flex items-center gap-2 text-white">
-                            <span><TbProgressAlert className="text-xl" /></span>
+                            {status === 'pending' && <span><TbProgressAlert className="text-xl" /></span>}
+                            {status === 'verified' && <span><MdVerified className="text-xl" /></span>}
+                            {status === 'rejected' && <span><MdCancel className="text-xl" /></span>}
                             <span className="text-base">{status}</span>
                         </span>
                     </div>

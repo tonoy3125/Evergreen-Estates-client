@@ -4,6 +4,7 @@ import { RiDeleteBin4Line } from "react-icons/ri";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { MdCancel, MdVerified } from "react-icons/md";
 
 const PropertiesCard = ({ item, refetch }) => {
     const axiosSecure = UseAxiosSecure()
@@ -65,7 +66,9 @@ const PropertiesCard = ({ item, refetch }) => {
                     <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-white dark:text-gray-400">
                         <span className="text-base">Price : $ {price}</span>
                         <span className="flex items-center gap-2">
-                            <span><TbProgressAlert className="text-xl" /></span>
+                            {status === 'pending' && <span><TbProgressAlert className="text-xl" /></span>}
+                            {status === 'verified' && <span><MdVerified className="text-xl" /></span>}
+                            {status === 'rejected' && <span><MdCancel className="text-xl" /></span>}
                             <span className="text-base">{status}</span>
                         </span>
                     </div>
