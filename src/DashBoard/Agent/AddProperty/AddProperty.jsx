@@ -41,6 +41,7 @@ const AddProperty = () => {
                 bed: data.bed,
                 bath: data.bath,
                 size: data.size,
+                description: data.description,
                 status
             }
             const itemRes = await axiosSecure.post('/property', Item)
@@ -117,8 +118,12 @@ const AddProperty = () => {
                                     <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4"> Size <span className="text-red-700">*</span></h2>
                                     <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" name="size" {...register("size", { required: true })} placeholder="Enter Property Size Here" id="" />
                                 </div>
+                                <div className="col-span-full">
+                                    <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4"> Description <span className="text-red-700">*</span></h2>
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" name="description" {...register("description", { required: true })} placeholder="Enter Property description Here" id="" />
+                                </div>
                                 <div className="col-span-full mt-5">
-                                    <input type="submit" value="Add Job" className="btn btn-block bg-[#4357AD] text-lg text-[#fff] hover:bg-[#154360] " />
+                                    <input type="submit" value="Add Property" className="btn btn-block bg-[#4357AD] text-lg text-[#fff] hover:bg-[#154360] " />
                                 </div>
                             </div>
                         </fieldset>

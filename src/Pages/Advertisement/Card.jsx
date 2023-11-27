@@ -5,6 +5,8 @@ import { SlSizeFullscreen } from "react-icons/sl";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 import { TbProgressAlert } from "react-icons/tb";
+import { Link } from "react-router-dom";
+
 
 const Card = ({ item }) => {
     const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status } = item
@@ -57,16 +59,18 @@ const Card = ({ item }) => {
                     </div>
 
                 </div>
-                <div className="flex items-center gap-5  mt-3">
+                <div className="flex items-center gap-5  mt-1 mb-3">
                     <div className="flex-1">
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-2 text-white">
                             <span><TbProgressAlert className="text-xl" /></span>
                             <span className="text-base">{status}</span>
                         </span>
                     </div>
-                    <div className="flex-1">
-                        <button className="btn btn-outline border-white text-white w-full"> Delete</button>
-                    </div>
+                    <Link to={`/propertydetails/${_id}`}>
+                        <div className="flex-1">
+                            <button className="btn btn-outline border-white text-white w-full"> Details</button>
+                        </div>
+                    </Link>
 
                 </div>
             </div>

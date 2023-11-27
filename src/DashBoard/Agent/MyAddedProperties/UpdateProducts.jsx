@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useLoaderData, useNavigate } from "react-router-dom";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
@@ -10,7 +11,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const UpdateProducts = () => {
     const item = useLoaderData()
-    const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status } = item[0]
+    const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status, description } = item[0];
     // console.log(item)
 
     const { user } = useAuth()
@@ -46,9 +47,10 @@ const UpdateProducts = () => {
                 bed: data.bed,
                 bath: data.bath,
                 size: data.size,
+                description: data.description
             }
-            const itemRes = await axiosSecure.put(`/properties/${_id}`, Items)
-            console.log(itemRes.data)
+            const itemRes = await axiosSecure.put(`/properties/${item[0]._id}`, Items)
+            // console.log(itemRes.data)
             if (itemRes.data.modifiedCount > 0) {
                 toast.success('Your Property have been updated')
                 navigate('/dashboard/myaddedproperties')
@@ -121,8 +123,12 @@ const UpdateProducts = () => {
                                     <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4"> Size <span className="text-red-700">*</span></h2>
                                     <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" defaultValue={size} name="size" {...register("size")} placeholder="Enter Property Size Here" id="" />
                                 </div>
+                                <div className="col-span-full">
+                                    <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4"> Description <span className="text-red-700">*</span></h2>
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" defaultValue={description} name="description" {...register("description", { required: true })} placeholder="Enter Property description Here" id="" />
+                                </div>
                                 <div className="col-span-full mt-5">
-                                    <input type="submit" value="Add Job" className="btn btn-block bg-[#4357AD] text-lg text-[#fff] hover:bg-[#154360] " />
+                                    <input type="submit" value="Submit" className="btn btn-block bg-[#4357AD] text-lg text-[#fff] hover:bg-[#154360] " />
                                 </div>
                             </div>
                         </fieldset>

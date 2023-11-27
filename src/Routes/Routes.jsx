@@ -24,6 +24,7 @@ import Wishlist from "../DashBoard/User/Wishlist/Wishlist";
 import PropertyBought from "../DashBoard/User/PropertyBought/PropertyBought";
 import MyReviews from "../DashBoard/User/MyReviews/MyReviews";
 import UpdateProducts from "../DashBoard/Agent/MyAddedProperties/UpdateProducts";
+import PropertyDetails from "../Pages/Advertisement/PropertyDetails/PropertyDetails";
 
 
 const router = createBrowserRouter([
@@ -47,7 +48,12 @@ const router = createBrowserRouter([
             {
                 path: "/allproperties",
                 element: <AllProperties></AllProperties>
-            }
+            },
+            {
+                path: "/propertydetails/:id",
+                element: <PropertyDetails></PropertyDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`)
+            },
         ]
     },
     {
