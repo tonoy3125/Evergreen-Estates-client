@@ -3,6 +3,7 @@ import { FiEdit3 } from "react-icons/fi";
 import { RiDeleteBin4Line } from "react-icons/ri";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const PropertiesCard = ({ item, refetch }) => {
     const axiosSecure = UseAxiosSecure()
@@ -10,7 +11,7 @@ const PropertiesCard = ({ item, refetch }) => {
     const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status } = item
 
 
-    
+
 
 
     const handleDeleteCard = item => {
@@ -69,9 +70,11 @@ const PropertiesCard = ({ item, refetch }) => {
                         </span>
                     </div>
                     <div className="flex items-center gap-5  mt-3">
-                        <div className="flex-1">
-                            <button className="btn btn-outline border-white text-white w-full"><FiEdit3 /> Edit</button>
-                        </div>
+                        <Link to={`updatedproperties/${_id}`}>
+                            <div className="flex-1">
+                                <button className="btn btn-outline border-white text-white w-full"><FiEdit3 /> Edit</button>
+                            </div>
+                        </Link>
                         <div className="flex-1">
                             <button onClick={() => handleDeleteCard(item)} className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
                         </div>

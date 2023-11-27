@@ -4,6 +4,7 @@ import { FaShower } from "react-icons/fa6";
 import { SlSizeFullscreen } from "react-icons/sl";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
+import { TbProgressAlert } from "react-icons/tb";
 
 const Card = ({ item }) => {
     const { _id, propertyImage, propertyname, agentname, agentemail, agentImage, location, price, year, bed, bath, size, status } = item
@@ -54,6 +55,19 @@ const Card = ({ item }) => {
                     <div>
                         <p className="text-white">Year {year}</p>
                     </div>
+
+                </div>
+                <div className="flex items-center gap-5  mt-3">
+                    <div className="flex-1">
+                        <span className="flex items-center gap-2">
+                            <span><TbProgressAlert className="text-xl" /></span>
+                            <span className="text-base">{status}</span>
+                        </span>
+                    </div>
+                    <div className="flex-1">
+                        <button className="btn btn-outline border-white text-white w-full"> Delete</button>
+                    </div>
+
                 </div>
             </div>
         </div>
