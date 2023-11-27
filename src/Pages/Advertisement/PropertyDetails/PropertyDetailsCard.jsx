@@ -23,9 +23,9 @@ const PropertyDetailsCard = ({ item }) => {
     const location = item.location
     const agentname = item.agentname
     const agentImage = item.agentImage
-    const status = item.status
+    // const status = item.status
     const price = item.price
-    const wishlistdata = { image, title, location, agentname, agentImage, status, price }
+    const wishlistdata = { image, title, location, agentname, agentImage, price }
     console.log(wishlistdata)
 
 
@@ -64,8 +64,9 @@ const PropertyDetailsCard = ({ item }) => {
         const review = form.review.value
         const userImage = user.photoURL
         const productId = item._id
+        const date = new Date()
         // console.log(title, name, email, rating, review)
-        const newReview = { title, name, email, rating, review, userImage, productId }
+        const newReview = { title, name, email, rating, review, userImage, productId, date }
         console.log(newReview)
 
 
@@ -76,6 +77,9 @@ const PropertyDetailsCard = ({ item }) => {
             toast.success('Your Review is Submitted')
         }
     }
+
+
+
 
 
 
@@ -255,7 +259,7 @@ const PropertyDetailsCard = ({ item }) => {
                 <h1 className="text-4xl mb-10 text-white font-bold">Recent Reviews</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-2 lg:mx-0 gap-5">
                     {
-                        reviews.map(review => <ReviewCards key={review._id} review={review}></ReviewCards>)
+                        reviews?.map(review => <ReviewCards key={review._id} review={review}></ReviewCards>)
                     }
                 </div>
             </div>
