@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FaClover, FaShower } from "react-icons/fa6";
 import { IoBedOutline } from "react-icons/io5";
 import { GiHomeGarage } from "react-icons/gi";
@@ -41,7 +42,7 @@ const PropertyDetailsCard = ({ item }) => {
     const handleAddWishList = async () => {
         const res = await axiosPublic.post('/wishlist', wishlistdata)
         // console.log(res)
-        if(res.data.insertedId){
+        if (res.data.insertedId) {
             toast.success('Your WishList Have Been Added')
         }
     }
