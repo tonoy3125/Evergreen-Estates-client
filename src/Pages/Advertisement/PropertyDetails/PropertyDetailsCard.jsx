@@ -1,4 +1,4 @@
-import { FaShower } from "react-icons/fa6";
+import { FaClover, FaShower } from "react-icons/fa6";
 import { IoBedOutline } from "react-icons/io5";
 import { GiHomeGarage } from "react-icons/gi";
 import { FiTriangle } from "react-icons/fi";
@@ -11,6 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import ReviewCards from "../../../Components/Reviews/ReviewCards";
 import { useQuery } from "@tanstack/react-query";
 import Reviews from './../../Reviews/Reviews';
+import ContactUs from "../../../Components/ContactUs/ContactUs";
 
 
 const PropertyDetailsCard = ({ item }) => {
@@ -66,7 +67,7 @@ const PropertyDetailsCard = ({ item }) => {
                 <div className="container flex flex-col mx-auto lg:flex-row">
 
                     <div className="lg:w-1/2 xl:w-3/5 dark:bg-gray-800">
-                        <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
+                        <div className="flex items-center  p-4 md:p-8 lg:p-12">
                             <img src={item.propertyImage} alt="" className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video sm:min-h-96" />
                         </div>
                     </div>
@@ -154,12 +155,17 @@ const PropertyDetailsCard = ({ item }) => {
                             </div>
                         </div>
 
+                        <button className="btn btn-outline text-white flex items-center text-base">
+                            <FaClover />
+                            Add To Wishlist
+                        </button>
+
                     </div>
                 </div>
             </section>
 
-            <div>
-                <div className="max-w-4xl mx-2 lg:mx-0 px-8 py-4 border border-white rounded-lg shadow-md dark:bg-gray-800">
+            <div className="flex flex-col lg:flex-row gap-5">
+                <div className="max-w-4xl flex-1 mx-2 lg:mx-0 px-8 py-4 shadow-2xl  shadow-gray-300/50 border border-white rounded-lg dark:bg-gray-800">
                     <h3 className="text-xl font-semibold text-white">Overview</h3>
                     <hr className="mt-5" />
                     <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mt-3">
@@ -201,12 +207,26 @@ const PropertyDetailsCard = ({ item }) => {
 
                     </div>
                 </div>
+                <div className="flex-1">
+                    <div className="lg:max-w-2xl flex-1 mx-2 lg:mx-0 px-8 py-4  rounded-lg border border-white shadow-2xl  shadow-gray-300/50 dark:bg-gray-800">
+                        <h3 className="text-xl font-semibold text-white">Additional Details</h3>
+                        <hr className="mt-2" />
+                        <h1 className="text-white mt-2 ">{item.propertyname}</h1>
+                        <h3 className="text-white mt-1">Agent Name : {item.agentname}</h3>
+                        <p className="text-white mt-1">Price Range : $ {item.price}</p>
+                    </div>
+
+                </div>
             </div>
-            <div>
-                <div className="max-w-4xl mx-2 lg:mx-0 px-8 py-4 mt-5 rounded-lg border border-white shadow-md dark:bg-gray-800">
+            <div className="flex flex-col lg:flex-row mt-10">
+                <div className="max-w-4xl flex-1 mx-2 lg:mx-0 px-8 py-4 mt-5 rounded-lg border border-white shadow-2xl  shadow-gray-300/50 dark:bg-gray-800">
                     <h3 className="text-xl font-semibold text-white">Description</h3>
                     <hr className="mt-5" />
                     <p className="text-white mt-3">{item.description}</p>
+                </div>
+                <div className="flex-1">
+                    <h3 className="text-white font-bold text-3xl text-center mb-5">Contact Us</h3>
+                    <ContactUs></ContactUs>
                 </div>
             </div>
 
