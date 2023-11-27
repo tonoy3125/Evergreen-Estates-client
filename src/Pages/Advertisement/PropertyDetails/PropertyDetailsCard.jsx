@@ -8,14 +8,31 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAuth from "../../../Hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
+import ReviewCards from "../../../Components/Reviews/ReviewCards";
+import { useQuery } from "@tanstack/react-query";
+import Reviews from './../../Reviews/Reviews';
 
 
 const PropertyDetailsCard = ({ item }) => {
     const axiosPublic = UseAxiosPublic()
     const { user } = useAuth()
 
+    const { data: reviews = [], refetch } = useQuery({
+        queryKey: ['reviews'],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/reviewer/${item._id}`)
+            return res.data
+        }
+    })
+    // console.log(reviews)
 
+
+
+
+    // Handle Add  Review
     const handleAddReview = async e => {
+
+
         e.preventDefault()
         console.log("Form submitted");
         const form = e.target
@@ -25,8 +42,9 @@ const PropertyDetailsCard = ({ item }) => {
         const rating = form.rating.value
         const review = form.review.value
         const userImage = user.photoURL
+        const productId = item._id
         // console.log(title, name, email, rating, review)
-        const newReview = { title, name, email, rating, review, userImage }
+        const newReview = { title, name, email, rating, review, userImage, productId }
         console.log(newReview)
 
 
@@ -191,10 +209,22 @@ const PropertyDetailsCard = ({ item }) => {
                     <p className="text-white mt-3">{item.description}</p>
                 </div>
             </div>
+
+
+            <div className=" mt-10">
+                <h1 className="text-4xl mb-10 text-white font-bold">Recent Reviews</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-2 lg:mx-0 gap-5">
+                    {
+                        reviews.map(review => <ReviewCards key={review._id} review={review}></ReviewCards>)
+                    }
+                </div>
+            </div>
+
+
             <div className="mt-5">
                 {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
-                <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button>
+                <button className=" btn btn-outline text-white" onClick={() => document.getElementById('my_modal_1').showModal()}>Add a Review</button>
                 <dialog id="my_modal_1" className="modal">
 
                     <div className="modal-box w-11/12 max-w-5xl">
