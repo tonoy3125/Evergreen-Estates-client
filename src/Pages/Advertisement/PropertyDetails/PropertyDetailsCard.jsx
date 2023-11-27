@@ -4,9 +4,44 @@ import { GiHomeGarage } from "react-icons/gi";
 import { FiTriangle } from "react-icons/fi";
 import { SlCalender } from "react-icons/sl";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
+import { useForm } from "react-hook-form";
+import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAuth from "../../../Hooks/useAuth";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const PropertyDetailsCard = ({ item }) => {
+    const axiosPublic = UseAxiosPublic()
+    const { user } = useAuth()
+
+
+    const handleAddReview = async e => {
+        e.preventDefault()
+        console.log("Form submitted");
+        const form = e.target
+        const title = form.title.value
+        const name = form.name.value
+        const email = form.email.value
+        const rating = form.rating.value
+        const review = form.review.value
+        const userImage = user.photoURL
+        // console.log(title, name, email, rating, review)
+        const newReview = { title, name, email, rating, review, userImage }
+        console.log(newReview)
+
+
+        const res = await axiosPublic.post('/review', newReview)
+        // console.log(res)
+        if (res.data.insertedId) {
+            form.reset()
+            toast.success('Your Review is Submitted')
+        }
+    }
+
+
+
+
+
     return (
         <div>
             <section className="dark:bg-gray-800 dark:text-gray-100">
@@ -156,7 +191,63 @@ const PropertyDetailsCard = ({ item }) => {
                     <p className="text-white mt-3">{item.description}</p>
                 </div>
             </div>
-        </div>
+            <div className="mt-5">
+                {/* You can open the modal using document.getElementById('ID').showModal() method */}
+
+                <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button>
+                <dialog id="my_modal_1" className="modal">
+
+                    <div className="modal-box w-11/12 max-w-5xl">
+                        <form onSubmit={handleAddReview}>
+                            <div className="">
+                                <h3 className="font-bold text-lg">Leave a Review</h3>
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-6 top-5">✕</button>
+                                </form>
+                            </div>
+                            <hr className="mt-1 mb-2" />
+
+                            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                                <div className="col-span-full lg:col-span-3">
+                                    <h2 className=" text-base md:text-xl font-semibold text-black mb-2">Title <span className="text-red-700">*</span></h2>
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff] border border-black  text-base font-normal text-[#1B1A1A99] rounded" type='text' name="title" defaultValue={item.propertyname} placeholder="Enter Title Here" id="" />
+                                </div>
+                                <div className="col-span-full lg:col-span-3">
+                                    <h2 className=" text-base md:text-xl font-semibold text-black mb-2">Reviewer Name <span className="text-red-700">*</span></h2>
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff] border border-black  text-base font-normal text-[#1B1A1A99] rounded" defaultValue={user?.displayName} type='text' name="name" placeholder="Enter Reviewer Name Here" id="" />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 mt-2">
+                                <div className="col-span-full lg:col-span-3">
+                                    <h2 className=" text-base md:text-xl font-semibold text-black mb-2">Reviewer Email <span className="text-red-700">*</span></h2>
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff] border border-black  text-base font-normal text-[#1B1A1A99] rounded" defaultValue={user?.email} type='email' name="email" placeholder="Enter Reviewer Email Here" id="" />
+                                </div>
+                                <div className="col-span-full lg:col-span-3">
+                                    <h2 className=" text-base md:text-xl font-semibold text-black mb-2"> Rating <span className="text-red-700">*</span></h2>
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff] border border-black  text-base font-normal text-[#1B1A1A99] rounded" type='text' name="rating" placeholder="Enter Rating Here" id="" />
+                                </div>
+                            </div>
+                            <div className="col-span-full mt-2">
+                                <h2 className=" text-base md:text-xl font-semibold text-black mb-2"> Review <span className="text-red-700">*</span></h2>
+                                <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]  border border-black text-base font-normal text-[#1B1A1A99] rounded" type="text" name="review" placeholder="Enter Review Here" id="" />
+                            </div>
+                            <div className="modal-action flex justify-center">
+                                {/* <form method="dialog">
+                                    if there is a button, it will close the modal
+
+                                </form> */}
+                                <input type="submit" value='Submit Review' className="btn btn-accent text-white" />
+                            </div>
+
+                        </form>
+                    </div>
+
+                </dialog>
+
+            </div>
+            <Toaster />
+        </div >
     );
 };
 
