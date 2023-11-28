@@ -1,5 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
+import Swal from "sweetalert2";
+import { MdVerified } from "react-icons/md";
+import { MdOutlineCancel } from 'react-icons/md';
 
 
 const RequestedProperties = () => {
@@ -13,6 +16,24 @@ const RequestedProperties = () => {
             return res.data
         }
     })
+
+
+    // handle verify or rejected
+    const handleaccepted = async (id, status) => {
+        const updateStatus = status;
+        const res = await axiosSecure.patch(`/propertyBrought/${id}`, updateStatus)
+            .then(updateRes => {
+                console.log(updateRes.data)
+                if (updateRes.data.modifiedCount > 0) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Status Updated successfully.',
+                    })
+                    refetch()
+                }
+            })
+    }
 
 
     return (
@@ -32,8 +53,16 @@ const RequestedProperties = () => {
                                     <th className="text-white text-xl">Buyer Email</th>
                                     <th className="text-white text-xl">Buyer Name</th>
                                     <th className="text-white text-xl">Offered Price</th>
-                                    <th className="text-white text-xl">Fraud</th>
-                                    <th className="text-white text-xl">Action</th>
+                                    {
+                                        propertyBrought?.status === 'accepted' || propertyBrought?.status === 'rejected' ? (<th className="px-6 py-3 text-left text-sm font-semibold text-white">
+                                            Status
+                                        </th>) : (<thead><th className="px-6 py-3 text-left text-sm font-semibold text-white">
+                                            Accept
+                                        </th>
+                                            <th className="px-6 py-3 text-left text-sm font-semibold text-white">
+                                                Reject
+                                            </th></thead>)
+                                    }
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +74,27 @@ const RequestedProperties = () => {
                                         <td className="text-white">{item.buyeremail}</td>
                                         <td className="text-white">{item.buyername}</td>
                                         <td className="text-white"> $ {item.offerprice}</td>
+                                        <td className="text-white">
+                                            {item.status === "accepted" || item.status === "rejected" ? (
+                                                <td className="px-6 py-4 text-sm">
+                                                    {item.status}
+                                                </td>
+                                            ) : (
+                                                <tr>
+                                                    <td className="px-6 py-4 text-sm">
+                                                        <button className="btn btn-outline text-white" onClick={() => handleaccepted(item._id, { status: "accepted" })}>
+                                                            <MdVerified className="text-3xl text-green-600"></MdVerified>
+                                                        </button>
+                                                    </td>
+                                                    {/* Change this line to <td> instead of <tr> */}
+                                                    <td className="px-6 py-4 text-sm">
+                                                        <button className="btn btn-outline text-white" onClick={() => handleaccepted(item._id, { status: "rejected" })}>
+                                                            <MdOutlineCancel className="text-3xl text-red-600"></MdOutlineCancel>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </td>
 
                                     </tr>)
                                 }
