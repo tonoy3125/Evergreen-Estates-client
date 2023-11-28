@@ -18,21 +18,57 @@ const RequestedProperties = () => {
     })
 
 
-    // handle verify or rejected
-    const handleaccepted = async (id, status) => {
-        const updateStatus = status;
-        const res = await axiosSecure.patch(`/propertyBrought/${id}`, updateStatus)
-            .then(updateRes => {
-                console.log(updateRes.data)
-                if (updateRes.data.modifiedCount > 0) {
+    const handleAccept = (requestId, status) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, accepted it!",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+
+                const res = await axiosSecure.put(`/api/request/${requestId}`, status)
+                console.log(res.data)
+                if (res.data.accptedResult.modifiedCount > 0 || res.data.rejectedResult.modifiedCount > 0) {
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: 'Status Updated successfully.',
-                    })
+                        title: "Updated!",
+                        text: "Property has been accepted",
+                        icon: "success"
+                    });
                     refetch()
                 }
-            })
+            }
+        });
+
+    }
+    const handleReject = (requestId, status) => {
+        console.log(status)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: 'Yes, rejected it!',
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+
+                const res = await axiosSecure.patch(`/api/reject/${requestId}`, status)
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Updated!",
+                        text: 'Property has been rejected',
+                        icon: "success"
+                    });
+                    refetch()
+                }
+            }
+        });
     }
 
 
@@ -53,16 +89,8 @@ const RequestedProperties = () => {
                                     <th className="text-white text-xl">Buyer Email</th>
                                     <th className="text-white text-xl">Buyer Name</th>
                                     <th className="text-white text-xl">Offered Price</th>
-                                    {
-                                        propertyBrought?.status === 'accepted' || propertyBrought?.status === 'rejected' ? (<th className="px-6 py-3 text-left text-sm font-semibold text-white">
-                                            Status
-                                        </th>) : (<thead><th className="px-6 py-3 text-left text-sm font-semibold text-white">
-                                            Accept
-                                        </th>
-                                            <th className="px-6 py-3 text-left text-sm font-semibold text-white">
-                                                Reject
-                                            </th></thead>)
-                                    }
+                                    <th className="text-white text-xl">Status</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,27 +102,26 @@ const RequestedProperties = () => {
                                         <td className="text-white">{item.buyeremail}</td>
                                         <td className="text-white">{item.buyername}</td>
                                         <td className="text-white"> $ {item.offerprice}</td>
-                                        <td className="text-white">
-                                            {item.status === "accepted" || item.status === "rejected" ? (
-                                                <td className="px-6 py-4 text-sm">
-                                                    {item.status}
-                                                </td>
-                                            ) : (
-                                                <tr>
-                                                    <td className="px-6 py-4 text-sm">
-                                                        <button className="btn btn-outline text-white" onClick={() => handleaccepted(item._id, { status: "accepted" })}>
-                                                            <MdVerified className="text-3xl text-green-600"></MdVerified>
-                                                        </button>
-                                                    </td>
-                                                    {/* Change this line to <td> instead of <tr> */}
-                                                    <td className="px-6 py-4 text-sm">
-                                                        <button className="btn btn-outline text-white" onClick={() => handleaccepted(item._id, { status: "rejected" })}>
-                                                            <MdOutlineCancel className="text-3xl text-red-600"></MdOutlineCancel>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            )}
-                                        </td>
+                                        <tr>
+                                            {
+                                                item?.status === "accepted" || item?.status === "rejected" ? (
+                                                    <td className="px-6 py-4">{item?.status}</td>
+                                                ) : (
+                                                    <>
+                                                        <td className="px-6 py-4 text-sm">
+                                                            <button className="mr-4 btn ">
+                                                                <MdVerified onClick={() => handleAccept(item?._id, { status: "accepted" })} className="text-2xl text-green-600"></MdVerified>
+                                                            </button>
+                                                        </td>
+                                                        <td className="px-6 py-4 text-sm">
+                                                            <button onClick={() => handleReject(item._id, { status: "rejected" })} className="mr-4 btn">
+                                                                <MdOutlineCancel className="text-2xl text-red-600 font-bold "></MdOutlineCancel>
+                                                            </button>
+                                                        </td>
+                                                    </>
+                                                )
+                                            }
+                                        </tr>
 
                                     </tr>)
                                 }
