@@ -33,6 +33,9 @@ const PropertyBoughtCard = ({ item }) => {
                         {item.status === 'accepted' && (
                             <Link to={`payment/${item._id}`}><button className="btn btn-outline flex-1 text-white">Pay</button></Link>
                         )}
+                        {item.status === 'Bought' && (
+                            <p className="text-white">Transaction Id : {item.transactionId}</p>
+                        )}
                     </div>
                 </div>
             </div>

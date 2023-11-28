@@ -41,6 +41,7 @@ const CheckoutForm = () => {
     const title = item[0].propertytitle
     const agentemail = item[0].agentemail
     const location = item[0].location
+    const paymentId = item[0]._id
     console.log(price)
 
 
@@ -101,6 +102,7 @@ const CheckoutForm = () => {
                 const payment = {
                     email: user.email,
                     buyername: user.displayName,
+                    paymentId,
                     price,
                     title,
                     transjectionId: paymentIntent.id,
@@ -110,7 +112,7 @@ const CheckoutForm = () => {
                 console.log(payment)
                 const res = await axiosSecure.post('/payments', payment)
                 console.log(res.data)
-                if (res.data?.insertedId) {
+                if (res.data?.result.insertedId) {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
