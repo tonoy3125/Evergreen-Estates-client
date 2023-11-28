@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
