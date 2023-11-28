@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { GrUserAdmin } from "react-icons/gr";
+import { GiHandcuffed } from "react-icons/gi";
 import { LuUserCog } from "react-icons/lu";
 import Swal from "sweetalert2";
 
@@ -77,6 +78,34 @@ const ManageUsers = () => {
     }
 
 
+
+    // handle fraud agent
+    const handleFraud = (id, status) => {
+        Swal.fire({
+            title: "Are you sure make fraud?",
+            text: "You won't recover it!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, make this user fraud!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.patch(`/users/fraud/${id}`, status)
+                console.log(res.data)
+                if (res.data.statusResult.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                }
+            }
+        });
+    }
+
+
     return (
         <div>
             <h1 className="text-2xl lg:text-4xl text-white font-bold text-center">Manage All Users</h1>
@@ -104,7 +133,7 @@ const ManageUsers = () => {
                                     <td className="text-white">{user.name}</td>
                                     <td className="text-white">{user.email}</td>
                                     <td className="text-white">{user.role}</td>
-                                    <td>
+                                    {/* <td>
                                         <button onClick={() => handleRole(user._id, { role: "admin" })} className="btn btn-outline text-white">
                                             <GrUserAdmin className="text-2xl"></GrUserAdmin>
                                         </button>
@@ -117,7 +146,55 @@ const ManageUsers = () => {
                                     <td className="text-white">Blue</td>
                                     <td><button onClick={() => handleDeleteUser(user)} className="btn btn-outline text-white">
                                         <RiDeleteBin5Line className="text-xl" />
+                                    </button></td> */}
+
+
+                                    <td className="px-6 py-4">
+                                        {
+                                            user?.status === "Fraud" ?
+                                                <td className="px-6 py-4 text-lg text-white">
+                                                    {user?.status}
+                                                </td>
+                                                : <button onClick={() => handleRole(user._id, { role: "admin" })} className="btn btn-outline text-white ">
+                                                    <GrUserAdmin className="text-2xl"></GrUserAdmin>
+                                                </button>
+                                        }
+                                    </td>
+
+                                    <td className="px-6 py-4">
+                                        {
+                                            user?.status === "Fraud" ?
+                                                <td className="px-6 py-4 text-lg text-white">
+                                                    {user?.status}
+                                                </td>
+                                                : <button onClick={() => handleRole(user._id, { role: "agent" })} className="btn btn-outline text-white">
+                                                    <LuUserCog className="text-2xl "></LuUserCog>
+                                                </button>
+                                        }
+                                    </td>
+
+                                    {/* make fraud */}
+                                    <td className="px-6 py-4">
+                                        {
+                                            user?.status === "Fraud" ?
+                                                <td className="px-6 py-4 text-lg text-white">
+                                                    {user?.status}
+                                                </td>
+                                                : <button
+                                                    onClick={() => handleFraud(user?._id, { status: "Fraud" })}
+                                                    disabled={user?.role === "user" || user?.role === "admin"} className="mr-4  btn bg-amber-500">
+                                                    <GiHandcuffed className="text-2xl text-white"></GiHandcuffed>
+                                                </button>
+                                        }
+                                    </td>
+
+                                    <td><button onClick={() => handleDeleteUser(user)} className="btn btn-outline text-white">
+                                        <RiDeleteBin5Line className="text-xl" />
                                     </button></td>
+
+
+
+
                                 </tr>)
                             }
 

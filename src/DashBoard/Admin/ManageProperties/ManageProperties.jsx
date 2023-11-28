@@ -88,7 +88,7 @@ const ManageProperties = () => {
                                     </td> */}
 
                                     {user.status === "verified" || user.status === "rejected" ? (
-                                        <td className="px-6 py-4 text-sm">
+                                        <td className="px-6 py-4 text-white text-sm">
                                             {user.status}
                                         </td>
                                     ) : (

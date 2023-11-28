@@ -45,7 +45,8 @@ const Register = () => {
                         // Create User Entry in the database
                         const usersInfo = {
                             name: name,
-                            email: email
+                            email: email,
+                            role: 'user'
                         }
                         axiosPublic.post('/users', usersInfo)
                             .then(res => {
