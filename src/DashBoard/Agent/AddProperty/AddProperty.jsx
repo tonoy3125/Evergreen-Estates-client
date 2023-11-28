@@ -29,6 +29,7 @@ const AddProperty = () => {
         console.log(res.data)
 
         if (res.data.success) {
+            const cleanPriceRange = data.price.replace(/[ ,]+/g, '');
             const Item = {
                 propertyImage: res.data.data.display_url,
                 propertyname: data.propertyname,
@@ -36,7 +37,7 @@ const AddProperty = () => {
                 agentemail: data.agentemail,
                 agentImage: data.agentImage,
                 location: data.location,
-                price: data.price,
+                price: cleanPriceRange,
                 year: data.year,
                 bed: data.bed,
                 bath: data.bath,
