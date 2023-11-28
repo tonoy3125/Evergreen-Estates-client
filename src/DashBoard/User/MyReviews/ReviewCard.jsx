@@ -1,11 +1,45 @@
 import { SlLike } from "react-icons/sl";
 import { FaRegCommentDots } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
-const ReviewCard = ({ review }) => {
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
+
+const ReviewCard = ({ review, refetch }) => {
+    const axiosSecure = UseAxiosSecure()
+
+    const handleDeleteCard = _id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/review/${_id}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
+
+
     return (
         <div>
             <div>
-                <div className="container border flex flex-col w-full shadow-2xl  shadow-gray-300/50  p-6 mx-auto divide-y rounded-md">
+                <div className="container relative border flex flex-col w-full shadow-2xl  shadow-gray-300/50  p-6 pt-9 mx-auto divide-y rounded-md">
                     <div className="flex justify-between p-4">
                         <div className="flex space-x-4">
                             <div>
@@ -38,6 +72,9 @@ const ReviewCard = ({ review }) => {
                             </span>
                         </div>
                     </div>
+                    <button onClick={() => handleDeleteCard(review._id)} className=" absolute right-4 top-3">
+                        <AiOutlineCloseCircle className="text-4xl text-white" />
+                    </button>
                 </div>
             </div>
         </div>

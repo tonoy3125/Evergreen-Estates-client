@@ -22,7 +22,7 @@ const MyReviews = () => {
         <div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
                 {
-                    reviews?.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)
+                    reviews?.map(review => <ReviewCard key={review._id} refetch={refetch} review={review}></ReviewCard>)
                 }
             </div>
         </div>
