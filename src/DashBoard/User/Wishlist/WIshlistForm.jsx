@@ -14,7 +14,7 @@ const WIshlistForm = () => {
     const { register, handleSubmit, reset } = useForm()
     // console.log(wishlist)
     const { agentname, title, location, agentemail } = wishlist
-    // console.log(agentname)
+    console.log(wishlist)
 
     const onSubmit = async (data) => {
         console.log(data)
@@ -26,7 +26,7 @@ const WIshlistForm = () => {
             location: data.location,
             agentname: data.agentname,
             agentImage: wishlist.agentImage,
-            agentemail: wishlist.agentemail,
+            agentemail: data.agentemail,
             buyername: data.buyername,
             buyeremail: data.buyeremail,
             date: data.date,
@@ -71,6 +71,10 @@ const WIshlistForm = () => {
                     <div className="col-span-full lg:col-span-3">
                         <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4">Agent Name <span className="text-red-700">*</span></h2>
                         <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" name="agentname" {...register("agentname")} readOnly defaultValue={agentname} placeholder="Enter Agent Name Here" id="" />
+                    </div>
+                    <div className="col-span-full lg:col-span-3">
+                        <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4">Agent email <span className="text-red-700">*</span></h2>
+                        <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" name="agentemail" {...register("agentemail")} readOnly defaultValue={agentemail} placeholder="Enter Agent Name Here" id="" />
                     </div>
                     <div className="col-span-full lg:col-span-3">
                         <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4">Buyer Name <span className="text-red-700">*</span></h2>

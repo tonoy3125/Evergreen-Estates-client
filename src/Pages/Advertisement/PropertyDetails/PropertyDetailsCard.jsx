@@ -28,7 +28,7 @@ const PropertyDetailsCard = ({ item }) => {
     // const status = item.status
     const price = item.price
     const wishlistdata = { image, title, location, agentname, agentImage, email, price, agentemail }
-    console.log(wishlistdata)
+    // console.log(wishlistdata)
 
 
     const { data: reviews = [], refetch } = useQuery({
