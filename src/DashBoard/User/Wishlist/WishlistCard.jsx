@@ -4,6 +4,7 @@ import { TbProgressAlert } from "react-icons/tb";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const WishlistCard = ({ item, refetch }) => {
@@ -66,7 +67,9 @@ const WishlistCard = ({ item, refetch }) => {
                         </div>
                         <div className="flex items-center gap-5  mt-3">
                             <div className="flex-1">
-                                <button className="btn btn-outline border-white text-white w-full"><MdOutlineLocalOffer /> Offer</button>
+                                <Link to={`wishlistoffer/${item._id}`}>
+                                    <button className="btn btn-outline border-white text-white w-full"><MdOutlineLocalOffer /> Offer</button>
+                                </Link>
                             </div>
                             <div className="flex-1">
                                 <button onClick={() => handleDeleteUser(item._id)} className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
