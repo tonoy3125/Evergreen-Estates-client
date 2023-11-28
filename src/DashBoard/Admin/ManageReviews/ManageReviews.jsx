@@ -18,7 +18,7 @@ const ManageReviews = () => {
         <div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 {
-                    review.map(singleReview => <ManageReviewCard key={singleReview._id} singleReview={singleReview}></ManageReviewCard>)
+                    review.map(singleReview => <ManageReviewCard key={singleReview._id} refetch={refetch} singleReview={singleReview}></ManageReviewCard>)
                 }
             </div>
         </div>

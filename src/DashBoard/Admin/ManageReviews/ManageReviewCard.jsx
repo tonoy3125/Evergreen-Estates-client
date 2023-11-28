@@ -1,10 +1,12 @@
 import { FaRegCommentDots } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
+import Swal from "sweetalert2";
 
 
-const ManageReviewCard = ({ singleReview }) => {
-
+const ManageReviewCard = ({ singleReview, refetch }) => {
+    const axiosSecure = UseAxiosSecure()
     const formatLocalTime = (timeString) => {
         try {
             const date = new Date(timeString);
@@ -15,6 +17,34 @@ const ManageReviewCard = ({ singleReview }) => {
             console.error('Error parsing date:', error);
             return 'Invalid Date';
         }
+    }
+
+
+    const handleDeleteCard = _id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/review/${_id}`)
+                    .then(res => {
+                        // console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
     }
 
 
@@ -56,7 +86,7 @@ const ManageReviewCard = ({ singleReview }) => {
                         </div>
                     </div>
                 </div>
-                <button className=" absolute right-4 top-3">
+                <button onClick={() => handleDeleteCard(singleReview._id)} className=" absolute right-4 top-3">
                     <AiOutlineCloseCircle className="text-4xl text-white" />
                 </button>
             </div>
