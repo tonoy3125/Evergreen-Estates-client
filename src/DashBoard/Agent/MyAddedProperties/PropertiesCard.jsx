@@ -73,11 +73,11 @@ const PropertiesCard = ({ item, refetch }) => {
                         </span>
                     </div>
                     <div className="flex items-center gap-5  mt-3">
-                        <Link to={`updatedproperties/${_id}`}>
-                            <div className="flex-1">
+                        <div className="flex-1">
+                            <Link to={`updatedproperties/${_id}`}>
                                 <button className="btn btn-outline border-white text-white w-full"><FiEdit3 /> Edit</button>
-                            </div>
-                        </Link>
+                            </Link>
+                        </div>
                         <div className="flex-1">
                             <button onClick={() => handleDeleteCard(item)} className="btn btn-outline border-white text-white w-full"> <RiDeleteBin4Line /> Delete</button>
                         </div>
