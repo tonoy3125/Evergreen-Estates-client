@@ -1,4 +1,5 @@
 import { TbProgressAlert } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const PropertyBoughtCard = ({ item }) => {
     return (
@@ -28,8 +29,10 @@ const PropertyBoughtCard = ({ item }) => {
                             <span className="text-base">{item.status}</span>
                         </span>
                     </div>
-                    <div className="flex items-center gap-5  mt-3">
-
+                    <div className="flex justify-center mt-3">
+                        {item.status === 'accepted' && (
+                            <Link to={`payment/${item._id}`}><button className="btn btn-outline flex-1 text-white">Pay</button></Link>
+                        )}
                     </div>
                 </div>
             </div>

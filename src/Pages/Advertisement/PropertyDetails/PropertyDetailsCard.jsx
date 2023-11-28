@@ -23,10 +23,11 @@ const PropertyDetailsCard = ({ item }) => {
     const location = item.location
     const agentname = item.agentname
     const agentImage = item.agentImage
+    const agentemail = item.agentemail
     const email = user.email
     // const status = item.status
     const price = item.price
-    const wishlistdata = { image, title, location, agentname, agentImage, email, price }
+    const wishlistdata = { image, title, location, agentname, agentImage, email, price, agentemail }
     console.log(wishlistdata)
 
 

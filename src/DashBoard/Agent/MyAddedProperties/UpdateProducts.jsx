@@ -25,7 +25,6 @@ const UpdateProducts = () => {
 
     const onSubmit = async (data) => {
         console.log(data)
-
         const imageFile = { image: data.propertyimage[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {

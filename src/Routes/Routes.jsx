@@ -26,6 +26,7 @@ import MyReviews from "../DashBoard/User/MyReviews/MyReviews";
 import UpdateProducts from "../DashBoard/Agent/MyAddedProperties/UpdateProducts";
 import PropertyDetails from "../Pages/Advertisement/PropertyDetails/PropertyDetails";
 import WIshlistForm from "../DashBoard/User/Wishlist/WIshlistForm";
+import Payment from "../DashBoard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -121,6 +122,11 @@ const router = createBrowserRouter([
             {
                 path: "propertybought",
                 element: <PropertyBought></PropertyBought>
+            },
+            {
+                path: "propertybought/payment/:id",
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/paymentBrought/${params.id}`)
             },
             {
                 path: "myreviews",

@@ -13,7 +13,7 @@ const WIshlistForm = () => {
     const [minPrice, maxPrice] = wishlist.price;
     const { register, handleSubmit, reset } = useForm()
     // console.log(wishlist)
-    const { agentname, title, location } = wishlist
+    const { agentname, title, location, agentemail } = wishlist
     // console.log(agentname)
 
     const onSubmit = async (data) => {
@@ -26,6 +26,7 @@ const WIshlistForm = () => {
             location: data.location,
             agentname: data.agentname,
             agentImage: wishlist.agentImage,
+            agentemail: wishlist.agentemail,
             buyername: data.buyername,
             buyeremail: data.buyeremail,
             date: data.date,
