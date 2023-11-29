@@ -6,7 +6,7 @@ const AdvertisementCard = () => {
     const [advertisement, setAdvertisement] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/property')
+        fetch('https://evergreen-estates-server-assignment.vercel.app/property')
             .then(res => res.json())
             .then(data => setAdvertisement(data))
     }, [])

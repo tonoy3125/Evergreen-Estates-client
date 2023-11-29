@@ -55,8 +55,9 @@ const AllPropertiesCard = ({ item }) => {
                             <span>{item.size}</span>
                         </div>
                     </div>
-                    <div className="mt-4">
-                        <button className="btn btn-outline text-white">Details</button>
+                    <p>{item.price}</p>
+                    <div className="mt-5 ">
+                        <button className="btn btn-outline text-white w-full">Details</button>
                     </div>
                 </div>
             </div>

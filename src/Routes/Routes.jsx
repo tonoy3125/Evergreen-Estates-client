@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: "/propertydetails/:id",
                 element: <PropertyDetails></PropertyDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`)
+                loader: ({ params }) => fetch(`https://evergreen-estates-server-assignment.vercel.app/properties/${params.id}`)
             },
         ]
     },
@@ -95,7 +95,7 @@ const router = createBrowserRouter([
             {
                 path: "myaddedproperties/updatedproperties/:id",
                 element: <UpdateProducts></UpdateProducts>,
-                loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`)
+                loader: ({ params }) => fetch(`https://evergreen-estates-server-assignment.vercel.app/properties/${params.id}`)
             },
             {
                 path: "mysoldproperties",
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
             {
                 path: "wishlist/wishlistoffer/:id",
                 element: <WIshlistForm></WIshlistForm>,
-                loader: ({ params }) => fetch(`http://localhost:5000/wishlists/${params.id}`)
+                loader: ({ params }) => fetch(`https://evergreen-estates-server-assignment.vercel.app/wishlists/${params.id}`)
             },
             {
                 path: "propertybought",
@@ -126,7 +126,7 @@ const router = createBrowserRouter([
             {
                 path: "propertybought/payment/:id",
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/paymentBrought/${params.id}`)
+                loader: ({ params }) => fetch(`https://evergreen-estates-server-assignment.vercel.app/paymentBrought/${params.id}`)
             },
             {
                 path: "myreviews",
