@@ -10,7 +10,7 @@ import { MdOutlineReviews } from "react-icons/md";
 const DashBoardNav = () => {
     return (
         <div>
-            <nav className=" fixed top-0 z-50 w-full  border-b border-gray-200 ">
+            <nav className=" top-0 z-50 w-full">
                 <div className="px-3 py-3 lg:px-5 lg:pl-3">
                     <div className=" drawer flex items-center justify-between">
                         <div className="flex items-center justify-start rtl:justify-end">
@@ -26,7 +26,7 @@ const DashBoardNav = () => {
                                     {/* <!-- Sidebar content here --> */}
                                     <NavLink to='/dashboard/adminprofile'>
                                         <li>
-                                            <div className="flex items-center p-2 text-white hover:text-black rounded-lg hover:bg-gray-100  group">
+                                            <div className="flex items-center p-2 text-black font-bold md:text-white hover:text-black rounded-lg hover:bg-gray-100  group">
                                                 <ImProfile className="text-base lg:text-xl" />
                                                 <span className="ms-3 lg:text-xl">Admin Profile</span>
                                             </div>
@@ -34,7 +34,7 @@ const DashBoardNav = () => {
                                     </NavLink>
                                     <NavLink to='/dashboard/manageproperties'>
                                         <li>
-                                            <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                            <div className="flex items-center p-2 text-black font-bold md:text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                                 <FaList className="text-base lg:text-xl" />
                                                 <span className="ms-3 lg:text-xl">Manage Properties</span>
                                             </div>
@@ -42,7 +42,7 @@ const DashBoardNav = () => {
                                     </NavLink>
                                     <NavLink to='/dashboard/manageusers'>
                                         <li>
-                                            <a href="#" className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                            <a href="#" className="flex items-center p-2 text-black font-bold md:text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                                 <FaUsers className="text-base lg:text-xl" />
                                                 <span className="ms-3 lg:text-xl">Manage Users</span>
                                             </a>
@@ -50,7 +50,7 @@ const DashBoardNav = () => {
                                     </NavLink>
                                     <NavLink to='/dashboard/managereviews'>
                                         <li>
-                                            <a href="#" className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                            <a href="#" className="flex items-center p-2 text-black font-bold md:text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                                 <MdOutlineReviews className="text-base lg:text-xl" />
                                                 <span className="ms-3 lg:text-xl">Manage Reviews</span>
                                             </a>
@@ -59,7 +59,7 @@ const DashBoardNav = () => {
                                 </ul>
 
                             </div>
-                            <div className="flex items-center ms-2 md:me-24">
+                            <div className="flex items-center gap-2 ms-2 md:me-24">
                                 <img className="w-10 h-10" src={logo} alt="" />
                                 <h1 className=" text-center md:text-left text-base md:text-xl lg:text-xl font-extrabold"><span className="text-white">Evergreen</span> <span className="text-white">Estates</span></h1>
                             </div>

@@ -59,6 +59,8 @@ const AddProperty = () => {
     return (
         <div>
             <div>
+                <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">Add Properties</h1>
+                <hr className=" w-[250px] lg:w-[350px] mx-auto mb-10 border-2" />
                 <Helmet><title>Evergreen Estates | Add Property</title></Helmet>
                 <section className="lg:p-16 dark:bg-gray-800 dark:text-gray-50">
                     <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12">
