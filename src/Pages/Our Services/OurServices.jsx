@@ -28,7 +28,7 @@ const OurServices = () => {
                             </a>
                         </div>
                         <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
-                            <img src="https://i.ibb.co/PzsZzYB/icons8-loan-64.png" alt="" />
+                            <img src="https://i.ibb.co/hLW3vP9/icons8-money-transfer.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Home loans</h1>
 
@@ -58,7 +58,7 @@ const OurServices = () => {
                             </a>
                         </div>
                         <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
-                            <img src="https://i.ibb.co/GRHjRDm/icons8-search.gif" alt="" />
+                            <img src="https://i.ibb.co/tY9X7hj/icons8-search-1.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Home inspection</h1>
 
@@ -73,12 +73,12 @@ const OurServices = () => {
                             </a>
                         </div>
                         <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
-                            <img className="ml-10" src="https://i.ibb.co/VQJWV84/Animation-1701278973169.gif" alt="" />
+                            <img className="ml-10" src="https://i.ibb.co/LSzxhSy/icons8-evaluation.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Evaluation</h1>
 
                             <p className="text-white dark:text-gray-300">
-                            We offer you free evaluation to get a mortgage loan.
+                                We offer you free evaluation to get a mortgage loan.
                             </p>
 
                             <a href="#" className="inline-flex p-2 text-blue-500 capitalize transition-colors duration-300 transform bg-blue-100 rounded-full rtl:-scale-x-100 dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500">
@@ -88,12 +88,12 @@ const OurServices = () => {
                             </a>
                         </div>
                         <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
-                            <img className="ml-10" src="https://i.ibb.co/VQJWV84/Animation-1701278973169.gif" alt="" />
+                            <img className="ml-10" src="https://i.ibb.co/k5cGL9V/icons8-schedule.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Photoshoot</h1>
 
                             <p className="text-white dark:text-gray-300">
-                            We prepare your home visual presentation.
+                                We prepare your home visual presentation.
                             </p>
 
                             <a href="#" className="inline-flex p-2 text-blue-500 capitalize transition-colors duration-300 transform bg-blue-100 rounded-full rtl:-scale-x-100 dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500">

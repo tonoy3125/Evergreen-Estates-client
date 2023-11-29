@@ -1,8 +1,6 @@
 
 import { useEffect, useState } from "react";
-
 import { useQuery } from "@tanstack/react-query";
-import Swal from "sweetalert2";
 import UseAxiosPublic from './../../../Hooks/useAxiosPublic';
 import UseAxiosSecure from './../../../Hooks/UseAxiosSecure';
 import { Helmet } from "react-helmet-async";
