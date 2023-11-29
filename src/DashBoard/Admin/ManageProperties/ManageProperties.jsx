@@ -41,7 +41,8 @@ const ManageProperties = () => {
     return (
         <div>
             <Helmet><title>Evergreen Estates | Manage Properties</title></Helmet>
-            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center">Manage All Properties</h1>
+            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">Manage Properties</h1>
+            <hr className=" w-[300px] lg:w-[410px] mx-auto mb-10 border-2" />
             <div className="lg:px-32 mt-10">
                 <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Properties : {property.length}</h3>
                 <div className="overflow-x-auto">

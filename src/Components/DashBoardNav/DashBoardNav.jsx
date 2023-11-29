@@ -6,6 +6,7 @@ import { ImProfile } from "react-icons/im";
 import { FaList } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineReviews } from "react-icons/md";
+import { IoHomeOutline } from "react-icons/io5";
 
 const DashBoardNav = () => {
     return (
@@ -56,8 +57,16 @@ const DashBoardNav = () => {
                                             </a>
                                         </li>
                                     </NavLink>
+                                    <hr className="h-[2px] mt-3" />
+                                    <NavLink to='/'>
+                                        <li className="mt-3">
+                                            <div className="flex items-center p-2 text-black font-bold hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                                <IoHomeOutline className="text-base lg:text-xl" />
+                                                <span className="ms-3 lg:text-xl">Home</span>
+                                            </div>
+                                        </li>
+                                    </NavLink>
                                 </ul>
-
                             </div>
                             <div className="flex items-center gap-2 ms-2 md:me-24">
                                 <img className="w-10 h-10" src={logo} alt="" />

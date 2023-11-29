@@ -3,6 +3,7 @@ import { ImProfile } from "react-icons/im";
 import { MdOutlineFormatListBulleted } from "react-icons/md"
 import { MdOutlineBookmarkAdded } from "react-icons/md";
 import { MdOutlineAddHomeWork } from "react-icons/md";
+import { IoHomeOutline } from "react-icons/io5";
 
 const UserNav = () => {
     return (
@@ -41,6 +42,15 @@ const UserNav = () => {
                         <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <MdOutlineAddHomeWork className="text-base lg:text-xl" />
                             <span className="ms-3 lg:text-xl">My Reviews</span>
+                        </div>
+                    </li>
+                </NavLink>
+                <hr className="h-[2px] mt-3" />
+                <NavLink to='/'>
+                    <li className="mt-3">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <IoHomeOutline className="text-base lg:text-xl" />
+                            <span className="ms-3 lg:text-xl">Home</span>
                         </div>
                     </li>
                 </NavLink>

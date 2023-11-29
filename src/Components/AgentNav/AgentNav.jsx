@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { ImProfile } from "react-icons/im";
+import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineAddModerator } from "react-icons/md";
 import { MdOutlineBookmarkAdded } from "react-icons/md";
 import { MdOutlineAddHomeWork } from "react-icons/md";
@@ -52,6 +53,15 @@ const AgentNav = () => {
                         <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <MdImageSearch className="text-base lg:text-xl" />
                             <span className="ms-3 lg:text-xl">Requested Properties</span>
+                        </div>
+                    </li>
+                </NavLink>
+                <hr className="h-[2px] mt-3" />
+                <NavLink to='/'>
+                    <li className="mt-3">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <IoHomeOutline className="text-base lg:text-xl" />
+                            <span className="ms-3 lg:text-xl">Home</span>
                         </div>
                     </li>
                 </NavLink>

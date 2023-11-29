@@ -22,6 +22,8 @@ const MyReviews = () => {
     return (
         <div>
             <Helmet><title>Evergreen Estates | My Reviews</title></Helmet>
+            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">My Reviews</h1>
+            <hr className=" w-[180px] lg:w-[250px] mx-auto mb-10 border-2" />
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
                 {
                     reviews?.map(review => <ReviewCard key={review._id} refetch={refetch} review={review}></ReviewCard>)

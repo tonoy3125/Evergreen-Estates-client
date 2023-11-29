@@ -23,9 +23,10 @@ const MySoldProperties = () => {
         <div>
             <div>
                 <Helmet><title>Evergreen Estates | My Sold Properties</title></Helmet>
-                <h1 className="text-2xl lg:text-4xl text-white font-bold text-center"> All Sold Properties</h1>
-                <div className="lg:px-32 mt-10">
-                    <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Sold Properties {payments.length}</h3>
+                <div className="lg:px-32 mt-5">
+                    <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">My Sold Properties</h1>
+                    <hr className=" w-[280px] lg:w-[410px] mx-auto mb-10 border-2" />
+                    <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-5">Total Sold Properties {payments.length}</h3>
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}

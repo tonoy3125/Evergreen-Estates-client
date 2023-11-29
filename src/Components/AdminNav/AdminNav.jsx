@@ -4,6 +4,7 @@ import { FaList } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineReviews } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 
 const AdminNav = () => {
     return (
@@ -38,6 +39,15 @@ const AdminNav = () => {
                         <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <MdOutlineReviews className="text-base lg:text-xl" />
                             <span className="ms-3 lg:text-xl">Manage Reviews</span>
+                        </div>
+                    </li>
+                </NavLink>
+                <hr className="h-[2px] mt-3" />
+                <NavLink to='/'>
+                    <li className="mt-3">
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <IoHomeOutline className="text-base lg:text-xl" />
+                            <span className="ms-3 lg:text-xl">Home</span>
                         </div>
                     </li>
                 </NavLink>

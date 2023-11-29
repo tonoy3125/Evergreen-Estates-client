@@ -20,6 +20,8 @@ const PropertyBought = () => {
     return (
         <div>
             <Helmet><title>Evergreen Estates | Property Bought</title></Helmet>
+            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">My Bought Property</h1>
+            <hr className=" w-[300px] lg:w-[430px] mx-auto mb-10 border-2" />
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
                 {
                     propertyBroughts.map(item => <PropertyBoughtCard key={item._id} item={item}></PropertyBoughtCard>)

@@ -21,6 +21,8 @@ const Wishlist = () => {
     return (
         <div>
             <Helmet><title>Evergreen Estates | Wishlist</title></Helmet>
+            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">My Wishlist</h1>
+            <hr className=" w-[190px] lg:w-[260px] mx-auto mb-10 border-2" />
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 container mx-auto">
                 {
                     wishlister?.map(item => <WishlistCard key={item._id} item={item} refetch={refetch}></WishlistCard>)

@@ -110,7 +110,8 @@ const ManageUsers = () => {
     return (
         <div>
             <Helmet><title>Evergreen Estates | Manage Review Card</title></Helmet>
-            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center">Manage All Users</h1>
+            <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">Manage All Users</h1>
+            <hr className=" w-[270px] lg:w-[400px] mx-auto mb-10 border-2" />
             <div className="lg:px-32 mt-10">
                 <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Users {users.length}</h3>
                 <div className="overflow-x-auto">

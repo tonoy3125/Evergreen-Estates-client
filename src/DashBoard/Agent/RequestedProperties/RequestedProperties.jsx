@@ -77,7 +77,8 @@ const RequestedProperties = () => {
         <div>
             <div>
                 <Helmet><title>Evergreen Estates | Requested Properties</title></Helmet>
-                <h1 className="text-2xl lg:text-4xl text-white font-bold text-center">Manage All Properties</h1>
+                <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">Requested Properties</h1>
+                <hr className=" w-[300px] lg:w-[450px] mx-auto mb-10 border-2" />
                 <div className="lg:px-32 mt-10">
                     <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Requested Properties {propertyBrought.length}</h3>
                     <div className="overflow-x-auto">
