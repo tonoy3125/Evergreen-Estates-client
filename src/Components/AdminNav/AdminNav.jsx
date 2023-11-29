@@ -42,6 +42,14 @@ const AdminNav = () => {
                         </div>
                     </li>
                 </NavLink>
+                <NavLink to='/dashboard/advertisementproperty'>
+                    <li>
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <MdOutlineReviews className="text-base lg:text-xl" />
+                            <span className="ms-3 lg:text-xl">Advertisement Property</span>
+                        </div>
+                    </li>
+                </NavLink>
                 <hr className="h-[2px] mt-3" />
                 <NavLink to='/'>
                     <li className="mt-3">

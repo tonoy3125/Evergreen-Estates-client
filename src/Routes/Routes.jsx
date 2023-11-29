@@ -27,6 +27,7 @@ import UpdateProducts from "../DashBoard/Agent/MyAddedProperties/UpdateProducts"
 import PropertyDetails from "../Pages/Advertisement/PropertyDetails/PropertyDetails";
 import WIshlistForm from "../DashBoard/User/Wishlist/WIshlistForm";
 import Payment from "../DashBoard/Payment/Payment";
+import AdvertisementProperty from "../DashBoard/Admin/Advertisement/AdvertisementProperty";
 
 
 const router = createBrowserRouter([
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
             {
                 path: "managereviews",
                 element: <ManageReviews></ManageReviews>
+            },
+            {
+                path: "advertisementproperty",
+                element: <AdvertisementProperty></AdvertisementProperty>
             },
             // Agent Routes
             {

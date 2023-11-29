@@ -16,6 +16,7 @@ const AddProperty = () => {
     const axiosSecure = UseAxiosSecure()
     const { register, handleSubmit, reset } = useForm()
     const status = 'pending'
+    const advertise = false
 
 
     const onSubmit = async (data) => {
@@ -44,7 +45,8 @@ const AddProperty = () => {
                 bath: data.bath,
                 size: data.size,
                 description: data.description,
-                status
+                status,
+                advertise
             }
             const itemRes = await axiosSecure.post('/property', Item)
             console.log(itemRes.data)
