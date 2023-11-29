@@ -3,7 +3,7 @@
 const OurServices = () => {
     return (
         <div>
-            <section className=" dark:bg-gray-900">
+            <section className=" dark:bg-gray-900 mt-10">
                 <div className="container px-6 py-10 mx-auto">
                     <h1 className="text-5xl font-bold text-center text-white">Our Services</h1>
 
@@ -107,6 +107,7 @@ const OurServices = () => {
                     </div>
                 </div>
             </section >
+            <hr className="w-[400px] mx-auto mt-20 border-2" />
         </div >
     );
 };

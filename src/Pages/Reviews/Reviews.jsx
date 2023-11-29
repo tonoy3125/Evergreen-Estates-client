@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { useQuery } from '@tanstack/react-query';
 import UseAxiosPublic from '../../Hooks/useAxiosPublic';
 
@@ -33,7 +33,7 @@ const Reviews = () => {
 
     return (
         <div className='container mx-auto'>
-            <h1 className='text-white text-center text-5xl mb-10 mt-10'>Users Reviews</h1>
+            <h1 className='text-white text-center text-5xl mb-20 mt-20'>Users Reviews</h1>
             <div className='max-w-3xl mx-auto'>
                 <Swiper
                     spaceBetween={30}
@@ -46,7 +46,7 @@ const Reviews = () => {
                         clickable: true,
                     }}
                     navigation={true}
-                    modules={[Autoplay, Pagination, Navigation]}
+                    modules={[Autoplay,  Navigation]}
                     className="mySwiper"
                 >
                     {
