@@ -55,9 +55,11 @@ const AllPropertiesCard = ({ item }) => {
                             <span>{item.size}</span>
                         </div>
                     </div>
-                    <p>{item.price}</p>
-                    <div className="mt-5 ">
-                        <button className="btn btn-outline text-white w-full">Details</button>
+                    <div className="flex items-center mt-5 justify-between">
+                        <p>Price : {item.price}</p>
+                        <div className="">
+                            <button className="btn btn-outline text-white">Details</button>
+                        </div>
                     </div>
                 </div>
             </div>
