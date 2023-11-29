@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { FcPaid } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 
 const MySoldProperties = () => {
@@ -21,6 +22,7 @@ const MySoldProperties = () => {
     return (
         <div>
             <div>
+                <Helmet><title>Evergreen Estates | My Sold Properties</title></Helmet>
                 <h1 className="text-2xl lg:text-4xl text-white font-bold text-center"> All Sold Properties</h1>
                 <div className="lg:px-32 mt-10">
                     <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Sold Properties {payments.length}</h3>

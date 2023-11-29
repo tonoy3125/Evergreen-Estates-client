@@ -3,6 +3,7 @@ import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { MdVerified } from "react-icons/md";
 import { MdOutlineCancel } from 'react-icons/md';
+import { Helmet } from "react-helmet-async";
 
 
 const RequestedProperties = () => {
@@ -75,6 +76,7 @@ const RequestedProperties = () => {
     return (
         <div>
             <div>
+                <Helmet><title>Evergreen Estates | Requested Properties</title></Helmet>
                 <h1 className="text-2xl lg:text-4xl text-white font-bold text-center">Manage All Properties</h1>
                 <div className="lg:px-32 mt-10">
                     <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Requested Properties {propertyBrought.length}</h3>

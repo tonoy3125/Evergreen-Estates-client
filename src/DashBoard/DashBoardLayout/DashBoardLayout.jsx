@@ -9,6 +9,7 @@ import UseAdmin from "../../Hooks/useAdmin";
 import useAgent from "../../Hooks/useAgent";
 import UserDashBoardNav from "../../Components/UserDashBoardNav/UserDashBoardNav";
 import UserNav from "../../Components/UserNav/UserNav";
+import { Helmet } from "react-helmet-async";
 
 
 const DashBoardLayout = () => {
@@ -17,6 +18,7 @@ const DashBoardLayout = () => {
 
     return (
         <div className=" min-h-screen ">
+            <Helmet><title>Evergreen Estates | DashBoard</title></Helmet>
             {/* Nav */}
             <div>
                 {isAdmin && <><DashBoardNav></DashBoardNav>

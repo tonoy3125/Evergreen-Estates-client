@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
 import WishlistCard from "./WishlistCard";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const Wishlist = () => {
@@ -19,6 +20,7 @@ const Wishlist = () => {
 
     return (
         <div>
+            <Helmet><title>Evergreen Estates | Wishlist</title></Helmet>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 container mx-auto">
                 {
                     wishlister?.map(item => <WishlistCard key={item._id} item={item} refetch={refetch}></WishlistCard>)

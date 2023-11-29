@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
 import PropertyBoughtCard from "./PropertyBoughtCard";
+import { Helmet } from "react-helmet-async";
 
 
 const PropertyBought = () => {
@@ -18,6 +19,7 @@ const PropertyBought = () => {
 
     return (
         <div>
+            <Helmet><title>Evergreen Estates | Property Bought</title></Helmet>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
                 {
                     propertyBroughts.map(item => <PropertyBoughtCard key={item._id} item={item}></PropertyBoughtCard>)

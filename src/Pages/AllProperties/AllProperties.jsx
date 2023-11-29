@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../../Hooks/useAxiosPublic";
 import AllPropertiesCard from "./AllPropertiesCard";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 const AllProperties = () => {
@@ -36,6 +37,7 @@ const AllProperties = () => {
 
     return (
         <div className="container mx-auto mt-10">
+            <Helmet><title>Evergreen Estates | All Properties</title></Helmet>
             <div>
                 <div className="text-center">
                     <input type="text" value={searchTerm}

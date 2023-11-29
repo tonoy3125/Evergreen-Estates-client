@@ -5,6 +5,7 @@ import { GrUserAdmin } from "react-icons/gr";
 import { GiHandcuffed } from "react-icons/gi";
 import { LuUserCog } from "react-icons/lu";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const ManageUsers = () => {
@@ -108,6 +109,7 @@ const ManageUsers = () => {
 
     return (
         <div>
+            <Helmet><title>Evergreen Estates | Manage Review Card</title></Helmet>
             <h1 className="text-2xl lg:text-4xl text-white font-bold text-center">Manage All Users</h1>
             <div className="lg:px-32 mt-10">
                 <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4">Total Users {users.length}</h3>
@@ -187,19 +189,11 @@ const ManageUsers = () => {
                                                 </button>
                                         }
                                     </td>
-
                                     <td><button onClick={() => handleDeleteUser(user)} className="btn btn-outline text-white">
                                         <RiDeleteBin5Line className="text-xl" />
                                     </button></td>
-
-
-
-
                                 </tr>)
                             }
-
-
-
                         </tbody>
                     </table>
                 </div>

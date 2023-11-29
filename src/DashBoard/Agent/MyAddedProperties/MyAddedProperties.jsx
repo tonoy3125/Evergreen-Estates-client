@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import PropertiesCard from "./PropertiesCard";
+import { Helmet } from "react-helmet-async";
 
 
 const MyAddedProperties = () => {
@@ -18,6 +19,7 @@ const MyAddedProperties = () => {
 
     return (
         <div>
+            <Helmet><title>Evergreen Estates | My Added Properties</title></Helmet>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 container mx-auto">
                 {
                     property.map(item => <PropertiesCard key={item._id} item={item} refetch={refetch}></PropertiesCard>)

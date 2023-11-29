@@ -4,6 +4,7 @@ import UseAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import UseAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAuth from './../../../Hooks/useAuth';
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
@@ -58,6 +59,7 @@ const AddProperty = () => {
     return (
         <div>
             <div>
+                <Helmet><title>Evergreen Estates | Add Property</title></Helmet>
                 <section className="lg:p-16 dark:bg-gray-800 dark:text-gray-50">
                     <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12">
                         <fieldset className="grid grid-cols-4 gap-6  rounded-md shadow-sm dark:bg-gray-900">

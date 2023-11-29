@@ -4,6 +4,7 @@ import useAuth from "../../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 
 const WIshlistForm = () => {
@@ -62,6 +63,7 @@ const WIshlistForm = () => {
 
     return (
         <div>
+            <Helmet><title>Evergreen Estates | Wishlist Form</title></Helmet>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                     <div className="col-span-full lg:col-span-3">
