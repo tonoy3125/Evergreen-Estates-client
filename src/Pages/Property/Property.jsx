@@ -45,7 +45,7 @@ const Property = () => {
         <div className="mt-16 mb-10">
             <h3 className="text-center font-semibold text-white text-3xl mb-5">What Kind of Property Looking?!</h3>
             <p className="text-xl text-center text-white">Our Listing Properties Type</p>
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 container mx-auto">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5  container mx-auto">
                 {property?.map(type =>
                     <div key={type.id} className="card border border-white rounded-lg shadow-2xl  shadow-gray-300/50">
                         <figure><img src={type.propertyImage} alt="Shoes" className="h-[300px] object-cover" /></figure>

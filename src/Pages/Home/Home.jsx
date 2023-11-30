@@ -5,6 +5,7 @@ import Reviews from "../Reviews/Reviews";
 import OurServices from "../Our Services/OurServices";
 import Blog from "../Blog/Blog";
 import Property from "../Property/Property";
+import PropertyArea from "../PropertyArea/PropertyArea";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <AdvertisementCard></AdvertisementCard>
             <OurServices></OurServices>
             <Property></Property>
+            <PropertyArea></PropertyArea>
             <Blog></Blog>
             <Reviews></Reviews>
         </div>

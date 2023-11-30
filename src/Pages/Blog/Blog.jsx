@@ -15,7 +15,7 @@ const Blog = () => {
     return (
         <div className='container mx-auto mt-20'>
             <div className="space-y-2 text-center mb-10">
-                <h2 className="text-5xl text-white font-bold">News and Blogs</h2>
+                <h2 className=" text-3xl lg:text-5xl text-white font-bold">News and Blogs</h2>
                 <p className="font-serif text-white dark:text-gray-400 pt-5">Write and deliver news stories with the reader’s perspective in mind</p>
             </div>
             <Swiper
@@ -26,6 +26,17 @@ const Blog = () => {
                 }}
                 modules={[Pagination]}
                 className="mySwiper"
+                breakpoints={{
+                    425: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                }}
             >
                 {/* Slider 1 */}
                 <SwiperSlide className='mb-12'>

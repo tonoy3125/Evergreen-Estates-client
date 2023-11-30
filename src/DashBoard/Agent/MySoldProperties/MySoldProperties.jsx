@@ -17,6 +17,9 @@ const MySoldProperties = () => {
             return res.data
         }
     })
+    const soldAmount = payments.reduce((accumulator, currentValue) => {
+        return accumulator + parseFloat(currentValue.price);
+    }, 0);
 
 
     return (
@@ -26,7 +29,10 @@ const MySoldProperties = () => {
                 <div className="lg:px-32 mt-5">
                     <h1 className="text-2xl lg:text-4xl text-white font-bold text-center mb-2">My Sold Properties</h1>
                     <hr className=" w-[280px] lg:w-[410px] mx-auto mb-10 border-2" />
-                    <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-5">Total Sold Properties {payments.length}</h3>
+                    <div className="flex items-center justify-between mb-5">
+                        <h3 className=" text-xl lg:text-3xl font-bold text-white text-center lg:text-left mb-5">Total Sold Properties {payments.length}</h3>
+                        <h3 className="text-xl lg:text-3xl font-bold text-white mb-5">Total Sold Amount : $ {soldAmount}</h3>
+                    </div>
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}

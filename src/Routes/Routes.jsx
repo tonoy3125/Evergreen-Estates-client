@@ -50,11 +50,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allproperties",
-                element: <AllProperties></AllProperties>
+                element: <PrivateRoute><AllProperties></AllProperties></PrivateRoute>
             },
             {
                 path: "/propertydetails/:id",
-                element: <PropertyDetails></PropertyDetails>,
+                element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://evergreen-estates-server-assignment.vercel.app/properties/${params.id}`)
             },
         ]

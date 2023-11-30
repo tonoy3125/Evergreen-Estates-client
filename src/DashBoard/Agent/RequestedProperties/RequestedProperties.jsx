@@ -4,15 +4,16 @@ import Swal from "sweetalert2";
 import { MdVerified } from "react-icons/md";
 import { MdOutlineCancel } from 'react-icons/md';
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../../Hooks/useAuth";
 
 
 const RequestedProperties = () => {
-
+    const { user } = useAuth()
     const axiosSecure = UseAxiosSecure()
     const { data: propertyBrought = [], refetch } = useQuery({
         queryKey: ['propertyBrought'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/propertyBrought')
+            const res = await axiosSecure.get(`/propertyBroughts/${user.email}`)
             console.log(res.data)
             return res.data
         }
@@ -108,7 +109,7 @@ const RequestedProperties = () => {
                                         <tr>
                                             {
                                                 item?.status === "accepted" || item?.status === "rejected" ? (
-                                                    <td className="px-6 py-4">{item?.status}</td>
+                                                    <td className="px-6 py-4 text-white">{item?.status}</td>
                                                 ) : (
                                                     <>
                                                         <td className="px-6 py-4 text-sm">
