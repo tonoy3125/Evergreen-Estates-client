@@ -26,12 +26,14 @@ body {
 /* button -#36a3cc */
 
 /* 
-app.post('/property', async (req, res) => {
-    try {
-        const item = req.body;
-        const result = await propertyCollection.insertOne(item);
-        res.send(result);
-    } catch (error) {
-        console.error('Error in /menu route:', error);
-    }
-}); */
+taijul bhai color
+
+1.#3a2b46  #42314e
+2.#bf3959  #d74064
+3.#5f6075  #c5c6db
+4.#5d7769  #3c5346
+5.#d44956  #a53943
+6.#462346  #310a31 #5a3b5a
+7.#0b4f6c  #093f56  #23617b  #0b4f6c
+
+*/

@@ -24,38 +24,46 @@ const UpdateProducts = () => {
 
 
 
+
     const onSubmit = async (data) => {
-        console.log(data)
-        const imageFile = { image: data.propertyimage[0] }
-        const res = await axiosPublic.post(image_hosting_api, imageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
+        let res
+        // console.log(data)
+        if (data?.propertyimage?.[0]) {
+            const imageFile = { image: data.propertyimage[0] }
+            res = await axiosPublic.post(image_hosting_api, imageFile, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+        }
+
         // console.log(res.data)
 
-        if (res.data.success) {
-            const Items = {
-                propertyImage: res.data.data.display_url,
-                propertyname: data.propertyname,
-                agentname: data.agentname,
-                agentemail: data.agentemail,
-                agentImage: data.agentImage,
-                location: data.location,
-                price: data.price,
-                year: data.year,
-                bed: data.bed,
-                bath: data.bath,
-                size: data.size,
-                description: data.description
-            }
-            const itemRes = await axiosSecure.put(`/properties/${item[0]._id}`, Items)
-            // console.log(itemRes.data)
-            if (itemRes.data.modifiedCount > 0) {
-                toast.success('Your Property have been updated')
-                navigate('/dashboard/myaddedproperties')
-            }
+
+        const Items = {
+            propertyImage: res ? res.data.data.display_url : null,
+            propertyname: data.propertyname,
+            agentname: data.agentname,
+            agentemail: data.agentemail,
+            agentImage: data.agentImage,
+            location: data.location,
+            price: data.price,
+            year: data.year,
+            bed: data.bed,
+            bath: data.bath,
+            size: data.size,
+            description: data.description
         }
+        if(!Items.propertyImage)  {
+            delete Items.propertyImage
+            }
+        const itemRes = await axiosSecure.put(`/properties/${item[0]._id}`, Items)
+        // console.log(itemRes.data)
+        if (itemRes.data.modifiedCount > 0) {
+            toast.success('Your Property have been updated')
+            navigate('/dashboard/myaddedproperties')
+        }
+
     }
 
 
@@ -126,7 +134,7 @@ const UpdateProducts = () => {
                                 </div>
                                 <div className="col-span-full">
                                     <h2 className=" text-base md:text-xl font-semibold text-white mb-2 lg:mb-4"> Description <span className="text-red-700">*</span></h2>
-                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" defaultValue={description} name="description" {...register("description", { required: true })} placeholder="Enter Property description Here" id="" />
+                                    <input className="pt-4 pb-4 pl-2 md:p-4 w-full bg-[#fff]   text-base font-normal text-[#1B1A1A99] rounded" type="text" defaultValue={description} name="description" {...register("description")} placeholder="Enter Property description Here" id="" />
                                 </div>
                                 <div className="col-span-full mt-5">
                                     <input type="submit" value="Submit" className="btn btn-block bg-[#4357AD] text-lg text-[#fff] hover:bg-[#154360] " />
