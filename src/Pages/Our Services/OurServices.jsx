@@ -12,7 +12,7 @@ const OurServices = () => {
                     </p>
 
                     <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-                        <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
+                        <div className="p-8 space-y-3 border-2 border-blue-400 shadow-2xl  shadow-gray-300/50 dark:border-blue-300 rounded-xl">
                             <img src="https://i.ibb.co/B4cqvSd/icons8-home-1.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Sell your home</h1>
@@ -27,7 +27,7 @@ const OurServices = () => {
                                 </svg>
                             </a>
                         </div>
-                        <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
+                        <div className="p-8 space-y-3 border-2 border-blue-400  shadow-2xl  shadow-gray-300/50 dark:border-blue-300 rounded-xl">
                             <img src="https://i.ibb.co/hLW3vP9/icons8-money-transfer.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Home loans</h1>
@@ -42,7 +42,7 @@ const OurServices = () => {
                                 </svg>
                             </a>
                         </div>
-                        <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
+                        <div className="p-8 space-y-3 border-2 border-blue-400 shadow-2xl  shadow-gray-300/50 dark:border-blue-300 rounded-xl">
                             <img className="ml-10" src="https://i.ibb.co/VL1jHWK/icons8-scales.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Legal services</h1>
@@ -57,7 +57,7 @@ const OurServices = () => {
                                 </svg>
                             </a>
                         </div>
-                        <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
+                        <div className="p-8 space-y-3 border-2 border-blue-400 shadow-2xl  shadow-gray-300/50 dark:border-blue-300 rounded-xl">
                             <img src="https://i.ibb.co/tY9X7hj/icons8-search-1.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Home inspection</h1>
@@ -72,7 +72,7 @@ const OurServices = () => {
                                 </svg>
                             </a>
                         </div>
-                        <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
+                        <div className="p-8 space-y-3 border-2 border-blue-400 shadow-2xl  shadow-gray-300/50 dark:border-blue-300 rounded-xl">
                             <img className="ml-10" src="https://i.ibb.co/LSzxhSy/icons8-evaluation.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Evaluation</h1>
@@ -87,7 +87,7 @@ const OurServices = () => {
                                 </svg>
                             </a>
                         </div>
-                        <div className="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl">
+                        <div className="p-8 space-y-3 border-2 shadow-2xl  shadow-gray-300/50 border-blue-400 dark:border-blue-300 rounded-xl">
                             <img className="ml-10" src="https://i.ibb.co/k5cGL9V/icons8-schedule.gif" alt="" />
 
                             <h1 className="text-xl font-semibold text-white capitalize dark:text-white">Photoshoot</h1>
