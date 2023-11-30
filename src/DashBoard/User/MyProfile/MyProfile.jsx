@@ -7,6 +7,7 @@ const MyProfile = () => {
     return (
         <div>
             <Helmet><title>Evergreen Estates | My Profile</title></Helmet>
+            <h1 className="text-4xl font-black text-white mb-5">Welcome ! !</h1>
             <div className="mb-10">
                 <div className="lg:max-w-2xl flex-1 mx-2 lg:mx-0 px-8 py-4  rounded-lg border border-white shadow-2xl  shadow-gray-300/50 dark:bg-gray-800">
                     <h3 className="text-xl font-semibold text-white">Additional Details</h3>
