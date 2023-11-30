@@ -3,6 +3,7 @@ import { FiTriangle } from "react-icons/fi";
 import { GiHomeGarage } from "react-icons/gi";
 import { IoBedOutline } from "react-icons/io5";
 import { MdVerified } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 
@@ -57,9 +58,10 @@ const AllPropertiesCard = ({ item }) => {
                     </div>
                     <div className="flex items-center mt-5 justify-between">
                         <p>Price : {item.price}</p>
-                        <div className="">
-                            <button className="btn btn-outline text-white">Details</button>
-                        </div>
+                        <Link to={`/propertydetails/${item._id}`}>
+                            <div className="">
+                                <button className="btn btn-outline text-white">Details</button>
+                            </div></Link>
                     </div>
                 </div>
             </div>
