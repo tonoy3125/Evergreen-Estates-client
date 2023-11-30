@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import { useLoaderData, useNavigate } from "react-router-dom";
 import UseAxiosPublic from "../../../Hooks/useAxiosPublic";
