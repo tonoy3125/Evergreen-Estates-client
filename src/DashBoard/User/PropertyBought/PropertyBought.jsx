@@ -8,10 +8,10 @@ import { Helmet } from "react-helmet-async";
 const PropertyBought = () => {
     const { user } = useAuth()
     const axiosPublic = UseAxiosPublic()
-    const { data: propertyBroughts = [], refetch } = useQuery({
-        queryKey: ['propertyBroughts', user.email],
+    const { data: propertyBroughtsUser = [], refetch } = useQuery({
+        queryKey: ['propertyBroughtsUser', user.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/propertyBroughts/${user.email}`)
+            const res = await axiosPublic.get(`/propertyBroughtsUser/${user.email}`)
             console.log(res.data)
             return res.data
         }
@@ -24,7 +24,7 @@ const PropertyBought = () => {
             <hr className=" w-[300px] lg:w-[430px] mx-auto mb-10 border-2" />
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
                 {
-                    propertyBroughts.map(item => <PropertyBoughtCard key={item._id} item={item}></PropertyBoughtCard>)
+                    propertyBroughtsUser.map(item => <PropertyBoughtCard key={item._id} item={item}></PropertyBoughtCard>)
                 }
             </div>
         </div>
