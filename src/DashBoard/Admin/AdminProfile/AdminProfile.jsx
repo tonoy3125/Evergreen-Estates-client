@@ -1,9 +1,26 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import UseAxiosSecure from './../../../Hooks/UseAxiosSecure';
+import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { AiTwotonePropertySafety } from "react-icons/ai";
+import { FaUsers } from "react-icons/fa";
+import { GoCodeReview } from "react-icons/go";
 
 
 const AdminProfile = () => {
     const { user } = useAuth()
+    const axiosSecure = UseAxiosSecure()
+
+    const { data: stats } = useQuery({
+        queryKey: ['admin-stats'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/admin-stats')
+            return res.data
+        }
+    })
+
+
     return (
         <div>
             <Helmet><title>Evergreen Estates | Admin Profile</title></Helmet>
@@ -28,7 +45,10 @@ const AdminProfile = () => {
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="stat border border-white rounded-lg shadow-2xl  shadow-gray-300/50 text-center">
                     <div className="stat-title text-white">Current balance</div>
-                    <div className="stat-value text-white">$89,400</div>
+                    <div className="flex items-center justify-center gap-5 mt-1">
+                        <FaMoneyCheckDollar className="text-white text-3xl" />
+                        <div className="stat-value text-white">$ {stats?.revenue}</div>
+                    </div>
                     <div className="stat-actions">
                         <button className="btn btn-outline text-white btn-sm mr-3">Withdrawal</button>
                         <button className="btn btn-sm btn-outline text-white">deposit</button>
@@ -40,8 +60,11 @@ const AdminProfile = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                         </div>
                     </div>
-                    <div className="stat-title text-white">Requested Properties</div>
-                    <div className="stat-value text-white">2.6k</div>
+                    <div className="stat-title text-white">Total Brought Properties</div>
+                    <div className="flex items-center justify-start gap-5">
+                        <AiTwotonePropertySafety className="text-white text-3xl" />
+                        <div className="stat-value text-white">{stats?.propertyBrought}</div>
+                    </div>
                     <div className="stat-desc text-white">21% more than last month</div>
                 </div>
                 <div className="stat border border-white rounded-lg shadow-2xl  shadow-gray-300/50">
@@ -49,15 +72,22 @@ const AdminProfile = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <div className="stat-title text-white">Total Users</div>
-                    <div className="stat-value text-white">2.6M</div>
+                    <div className="flex items-center justify-start gap-5">
+                        <FaUsers className="text-white text-3xl" />
+                        <div className="stat-value text-white">{stats?.users}</div>
+                    </div>
                     <div className="stat-desc text-white">52% more than last month</div>
                 </div>
                 <div className="stat border border-white rounded-lg shadow-2xl  shadow-gray-300/50">
                     <div className="stat-figure text-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
-                    <div className="stat-title text-white">Total Pending Reviews</div>
-                    <div className="stat-value text-white">2.6k</div>
+                    <div className="stat-title text-white">Total User Reviews</div>
+                    <div className="flex items-center justify-start gap-5">
+                        <GoCodeReview className="text-white text-3xl" />
+                        <div className="stat-value text-white">{stats?.review}</div>
+                    </div>
+
                     <div className="stat-desc text-white">51% more than last month</div>
                 </div>
 
