@@ -28,6 +28,7 @@ import PropertyDetails from "../Pages/Advertisement/PropertyDetails/PropertyDeta
 import WIshlistForm from "../DashBoard/User/Wishlist/WIshlistForm";
 import Payment from "../DashBoard/Payment/Payment";
 import AdvertisementProperty from "../DashBoard/Admin/Advertisement/AdvertisementProperty";
+import ReportedProperty from "../DashBoard/Admin/ReportedProperty/ReportedProperty";
 
 
 const router = createBrowserRouter([
@@ -79,6 +80,11 @@ const router = createBrowserRouter([
             {
                 path: "managereviews",
                 element: <ManageReviews></ManageReviews>
+            },
+            {
+                path: "reportedproperty",
+                element: <ReportedProperty></ReportedProperty>
+                
             },
             {
                 path: "advertisementproperty",

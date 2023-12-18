@@ -5,6 +5,7 @@ import { FaUsers } from "react-icons/fa";
 import { MdOutlineReviews } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
+import { MdReportGmailerrorred } from "react-icons/md";
 
 const AdminNav = () => {
     return (
@@ -39,6 +40,14 @@ const AdminNav = () => {
                         <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <MdOutlineReviews className="text-base lg:text-xl" />
                             <span className="ms-3 lg:text-xl">Manage Reviews</span>
+                        </div>
+                    </li>
+                </NavLink>
+                <NavLink to='/dashboard/reportedproperty'>
+                    <li>
+                        <div className="flex items-center p-2 text-white hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <MdReportGmailerrorred className="text-base lg:text-xl" />
+                            <span className="ms-3 lg:text-xl">Reported Property</span>
                         </div>
                     </li>
                 </NavLink>

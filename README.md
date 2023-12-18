@@ -96,6 +96,15 @@
 4) Maximum 6 properties can be advertised 🌐6️⃣:
    - Limitation on the number of advertised properties.
 
+- Reported Property Page:
+1) Admin can view all reported properties 🚫:
+   - The properties which are reported by users admin can show all reported properties.
+2) Card with property details (property image,property title, reporter information, agent information) 📊🏡:
+   - Organized display of reported property information.
+3) Manage reported properties & can remove specific reported properties and reviews 🚀🔄:
+   - Remove reported properties and reviews for specific properties.
+
+
 
 # Agent DashBoard 👤
 

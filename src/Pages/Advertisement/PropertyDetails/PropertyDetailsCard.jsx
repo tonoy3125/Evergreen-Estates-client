@@ -13,6 +13,7 @@ import ReviewCards from "../../../Components/Reviews/ReviewCards";
 import { useQuery } from "@tanstack/react-query";
 import Reviews from './../../Reviews/Reviews';
 import ContactUs from "../../../Components/ContactUs/ContactUs";
+import ReportModal from "./ReportModal";
 
 
 const PropertyDetailsCard = ({ item }) => {
@@ -320,6 +321,8 @@ const PropertyDetailsCard = ({ item }) => {
                     </div>
 
                 </dialog>
+
+                <ReportModal item={item}></ReportModal>
 
             </div>
             <Toaster />
